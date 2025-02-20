@@ -1,0 +1,12 @@
+#Run expectation value computation with:
+# uv run run_expvalues.py --config_file example_config_expvalues.yaml --other_optional_parameters
+# or
+# python run_expvalues.py --config_file example_config_expvalues.yaml --other_optional_parameters
+
+directory: "" #path to directory containing post.json and post directory (output of optimization)
+net: "ConvNext" #Name of neural network used (ConvNext,...)
+n_samples_per_chain: 128
+n_chains: 1
+n_discard_per_chain: 128
+chunk_size: 128
+symmetry_stage: 0

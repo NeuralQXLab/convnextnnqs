@@ -1,0 +1,6 @@
+*code-workspace
+*DS_Store
+*.egg-info*
+*.python*
+*hello.py
+*.pyc

@@ -1,0 +1,28 @@
+[project]
+name = "convnext-nnqs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "configargparse>=1.7",
+    "einops>=0.8.1",
+    "jax==0.4.38",
+    "netket==3.16",
+    "nqxpack",
+]
+
+[dependency-groups]
+dev = [
+    "convnext-nnqs",
+    "ipykernel>=6.29.5",
+]
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv.sources]
+convnext-nnqs = { workspace = true }
+netket = { git = "https://github.com/netket/netket" }
+nqxpack = { git = "https://github.com/NeuralQXLab/nqxpack.git" }
