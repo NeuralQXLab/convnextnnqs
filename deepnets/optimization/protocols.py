@@ -478,25 +478,24 @@ class Protocol:
         """
         sim_time, final_lr, final_diag_shift = self.optimize()
         n_chains_per_rank = 32
-        # print(f"self.vstate = ", jax.tree.structure(self.vstate.variables))
-        min_index, min_energy = self.post_optimize(
-            lr=final_lr, diag_shift=final_diag_shift, n_chains_per_rank=n_chains_per_rank
-        )
-
-        # Check from arguments whether the final network is symmetrized
-        if self.symmetries or self.symmetry_ramping:
-            symmetrized = True
-        else:
-            symmetrized = False
-
-        saver.save(
-            self.system,
-            self.network,
-            self.save_base + "post.json",
-            min_index=min_index,
-            min_energy=min_energy,
-            symmetrized=symmetrized,
-            n_chains=n_chains_per_rank*len(jax.devices())
-        )
+        if self.post_iters > 0:
+            min_index, min_energy = self.post_optimize(
+                lr=final_lr, diag_shift=final_diag_shift, n_chains_per_rank=n_chains_per_rank
+            )
+            # Check from arguments whether the final network is symmetrized
+            if self.symmetries or self.symmetry_ramping:
+                symmetrized = True
+            else:
+                symmetrized = False
+        
+            saver.save(
+                self.system,
+                self.network,
+                self.save_base + "post.json",
+                min_index=min_index,
+                min_energy=min_energy,
+                symmetrized=symmetrized,
+                n_chains=n_chains_per_rank*len(jax.devices())
+            )
 
         return sim_time, self.vstate.n_parameters

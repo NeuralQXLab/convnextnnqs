@@ -1,14 +1,15 @@
+#Optimization with the convnext without using `Protocol`
+
 import netket as nk
+import netket.experimental as nke
 from deepnets.net import ConvNext
-from deepnets.system import Square_Heisenberg
+from deepnets.system import Square_Heisenberg, Shastry_Sutherland
 import optax
-import netket_checkpoint as nkc
-import netket_pro as nkp
 
 # System
 L = 6
-J = [1, 2]
-system = Square_Heisenberg(L, J)
+J = [0.8,1.0]
+system = Shastry_Sutherland(L=L, J = J)
 
 # Network
 n_blocks = (2,)
@@ -26,7 +27,7 @@ net_wrapped = ConvNext(
     kernel_width=kernel_width,
     downsample_factor=downsample_factor,
     final_features=final_features,
-    init_kernel_width=1,
+    init_kernel_width=1, #dummty if not using NoPatching
     system=system,
 )
 nets = [
@@ -63,7 +64,6 @@ lr = 5e-3
 lr_factor = 0.5
 diag_shift = 1e-2
 diag_shift_factor = 1e-2
-momentum = 0.9
 
 lr_scheduler = optax.cosine_decay_schedule(
     init_value=lr, decay_steps=iters, alpha=lr_factor
@@ -72,15 +72,7 @@ diag_shift_scheduler = optax.cosine_decay_schedule(
     init_value=diag_shift, decay_steps=iters, alpha=diag_shift_factor
 )
 optimizer = nk.optimizer.Sgd(learning_rate=lr_scheduler)
-solver = nk.optimizer.solver.solve
-
-# Checkpointing
-options = nkc.checkpoint.CheckpointManagerOptions(
-    save_interval_steps=save_every, max_to_keep=1
-)
-checkpointer = nkc.checkpoint.CheckpointManager(
-    save_base + "checkpoint", options=options
-)
+solver = nk.optimizer.solver.cholesky
 
 # Vstate
 network = nets[-1]  # [0] is unsymmetrized, [-1] fully symmetrized
@@ -93,21 +85,18 @@ vstate = nk.vqs.MCState(
 )
 
 # Run simulation
-driver = nkp.driver.VMC_SRt_ntk(
+driver = nke.driver.VMC_SRt_ntk(
     hamiltonian=system.hamiltonian,
     optimizer=optimizer,
     linear_solver_fn=solver,
     diag_shift=diag_shift_scheduler,
-    variational_state=vstate,
-    momentum=momentum,
-    chunk_size=chunk_size,
+    variational_state=vstate
 )
 
 callbacks = []
-driver.run_checkpointed(
+driver.run(
     n_iter=iters,
     out=log,
     show_progress=True,
-    checkpointer=checkpointer,
     callback=callbacks,
 )
