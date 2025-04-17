@@ -2,7 +2,6 @@ import numpy as np
 import glob
 import netket as nk
 import flax
-from deepnets.net import ViT2D
 import re
 from collections.abc import Sequence
 

@@ -3,8 +3,7 @@ import netket as nk
 import numpy as np
 import argparse
 import warnings
-import json
-import jax
+import jax.numpy as jnp
 import einops
 
 from collections.abc import Sequence
@@ -281,7 +280,7 @@ class Shastry_Sutherland(Spin_Half):
         )  # shape (nbatch, x, y)
         x = x.reshape(x.shape + (1,))  # shape (nbatch, x, y, 1)
         return x
-
+    
     def __init__(self, L: int, J: Sequence[float], sz_sector=0):
         if len(J) != 2:
             raise ValueError("Shastry-Sutherland model requires J1 and J2")
@@ -317,6 +316,16 @@ class Shastry_Sutherland(Spin_Half):
             hilbert=self.hilbert_space, graph=self.graph, J=self.J
         )
         self.hamiltonian_name = "Heisenberg"
+        self.positions = self.graph.positions
+
+    def compute_positions(self) -> Array:
+        """
+            Return the positions of the centre of patches in shape (npx,npy, 2).
+            The order of patches is the same as that from extract_patches_to2d
+        """
+        patched_positions = self.extract_patches_as2d(self.positions.transpose()) #(2,npx,npy,patch_size)
+        patch_positions = jnp.mean(patched_positions,axis=-1) #(2,npx,npy), gives centre of sites making up patch
+        return patch_positions.transpose((1,2,0)) #(npx,npy,2)
 
 systems = {
     "Square_Heisenberg": Square_Heisenberg,

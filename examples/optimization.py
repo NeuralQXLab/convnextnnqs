@@ -6,7 +6,7 @@ import netket as nk
 from deepnets.net import ConvNext
 from deepnets.system import Shastry_Sutherland, Square_Heisenberg
 from deepnets.optimization.protocols import Protocol
-import deepnets.optimization.save_load as save_load
+import deepnets.utils.serialize as serialize
 import argparse
 import numpy as np
 import optax

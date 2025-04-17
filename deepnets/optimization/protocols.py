@@ -1,7 +1,7 @@
 import os
 import netket as nk
 import netket.experimental as nke
-import deepnets.optimization.save_load as saver
+import deepnets.utils.serialize as saver
 import jax
 import jaxlib
 from jax.tree import structure as tree_structure
@@ -12,7 +12,7 @@ import numpy as np
 import jax.numpy as jnp
 import argparse
 from deepnets.optimization.utils import process_print, to_sequence, add_module
-from deepnets.callbacks import SaveVariationalState
+from deepnets.callbacks import SaveVariables
 
 class Protocol:
     callbacks = (nk.callbacks.InvalidLossStopping(),)
@@ -158,11 +158,11 @@ class Protocol:
         """
         process_print(f"Performing {post_iters} additional optimization steps...")
         start = time.time()
-        #Make directory for saving vstates
+        #Make directory for saving vstate variables
         post_save_base = save_base + "post/"
         os.makedirs(post_save_base,exist_ok=False) #raises error if already exists
 
-        saver_callback = SaveVariationalState(save_every=1, file_prefix=post_save_base)
+        saver_callback = SaveVariables(save_every=1, file_prefix=post_save_base)
         # New sampler for different number of chains
         sampler = sampler_t(
             system.hilbert_space,

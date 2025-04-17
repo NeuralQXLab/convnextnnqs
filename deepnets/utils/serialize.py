@@ -1,6 +1,18 @@
+import flax
+import netket as nk
 import json
 import deepnets.system.system as sys
 import deepnets.net.wrappers as net
+
+def load_variables(mpack_name: str, vstate) -> nk.vqs.VariationalState:
+    with open(mpack_name, "rb") as f:
+        variables = flax.serialization.from_bytes(vstate.variables, f.read())
+    vstate.variables = variables
+    return vstate
+
+def save_variables(mpack_name: str, vstate):
+    with open(mpack_name,"wb") as f:
+        f.write(flax.serialization.to_bytes(vstate.variables))
 
 def save(system, network, fname: str, **kwargs):
     kwarg_dict = kwargs  # kwargs is a dictionary of form

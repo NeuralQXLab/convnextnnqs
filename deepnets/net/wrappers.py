@@ -2,13 +2,12 @@
 from deepnets.net.base_wrapper import NetBase
 import argparse
 import deepnets.system as system
-import json
 from deepnets.net import ConvNext
 
 class ConvNext(NetBase):
     nets = {
         "Vanilla": ConvNext.ConvNextVanilla,
-        "Exp": ConvNext.ConvNextExp,
+        "FT": ConvNext.ConvNextFT,
         "NoPatching": ConvNext.ConvNext_nopatching,
     }
 
@@ -93,6 +92,7 @@ class ConvNext(NetBase):
         final_features: int,
         init_kernel_width: int,
         output_depth: int,
+        q: tuple[float],
         system: system.Spin_Half,
     ):
         self.name = "ConvNext"
@@ -106,26 +106,9 @@ class ConvNext(NetBase):
         self.final_features = final_features
         self.init_kernel_width = init_kernel_width
         self.output_depth = output_depth
+        self.q = q
 
-        if net_type == "SkyNet" or net_type == "DoubleSkip" or net_type == "Exp":
-            print(f"Using net_type={net_type}")
-            for i in range(len(self.lattice_shape)):
-                assert (
-                    self.lattice_shape[i] >= self.kernel_width * self.downsample_factor
-                )  # check that kernel_size is not bigger than the lattice after patching
-
-            self.network = self.nets[self.net_type](
-                lattice_shape=self.lattice_shape,
-                n_blocks=n_blocks,
-                features=features,
-                expansion_factor=expansion_factor,
-                kernel_size=(kernel_width, kernel_width),
-                downsample_factor=downsample_factor,
-                final_features=final_features,
-                extract_patches=system.extract_patches_as2d,
-            )
-
-        elif net_type == "Vanilla":
+        if net_type == "Vanilla":
             print(f"Using net_type={net_type}")
             for i in range(len(self.lattice_shape)):
                 assert (
@@ -158,9 +141,22 @@ class ConvNext(NetBase):
                 reshape_function=system.reshape_xy,
             )
 
+        elif net_type == "FT":
+            print(f"Using net_type= FT")
+            self.network = self.nets[self.net_type](
+                n_blocks=n_blocks,
+                features=features,
+                expansion_factor=expansion_factor,
+                kernel_size=(kernel_width, kernel_width),
+                final_features=final_features,
+                extract_patches=system.extract_patches_as2d,
+                q=q,
+                compute_positions=system.compute_positions,
+            )
+
         else:
             raise NotImplementedError(
-                "net_types implemented are Vanilla, DoubleSkip, Exp, SkyNet and NoPatching"
+                "net_types implemented are Vanilla, FT or NoPatching"
             )
 
     def name_and_arguments_to_dict(self):
@@ -178,6 +174,7 @@ class ConvNext(NetBase):
             "final_features": self.final_features,
             "init_kernel_width": self.init_kernel_width,
             "output_depth": self.output_depth,
+            "q": self.q,
         }
         return arg_dict
 

@@ -1,10 +1,9 @@
-from deepnets.net.ConvNext.heads import OutputHead, ExpHead, UnitCellHead
+from deepnets.net.ConvNext.heads import OutputHead, UnitCellHead, FTHead
 from deepnets.net.ConvNext.stems import PatchStem, ConvStem
-from deepnets.net.ConvNext.encoder import Encoder, EncoderDoubleSkip
+from deepnets.net.ConvNext.encoder import Encoder
 from flax import linen as nn
 from netket.utils.types import Callable
 import jax.numpy as jnp
-
 
 class ConvNext(nn.Module):
     """
@@ -28,7 +27,7 @@ class ConvNext(nn.Module):
         By what factor to expand and compress the features in each block
     """
     Encoder: nn.module
-    Head: nn.module
+    head: nn.module
     """
         Output head after ConvNextV2
     """
@@ -64,9 +63,7 @@ class ConvNext(nn.Module):
             expansion_factor=self.expansion_factor,
             param_dtype=jnp.float64,
         )
-        self.output = self.Head(
-            lattice_shape=self.lattice_shape, final_features=self.final_features
-        )
+        self.output = self.head
 
     def __call__(self, x):
         x = self.stem(x)
@@ -149,12 +146,6 @@ class ConvNext_nopatching(nn.Module):
         # print(x.shape)
         return x
 
-#need to define this for serialization (see bottom of this file)
-def _create_output_head(output_depth):
-    def output_head(lattice_shape, final_features):
-        return OutputHead(lattice_shape, final_features, output_depth)
-    return output_head
-
 def ConvNextVanilla(
     lattice_shape: tuple,
     n_blocks: tuple,
@@ -166,7 +157,10 @@ def ConvNextVanilla(
     extract_patches: Callable,
     output_depth: int = 1,
 ):
-    output_head = _create_output_head(output_depth)
+    output_head = OutputHead(lattice_shape = lattice_shape, 
+                             final_features = final_features,
+                             output_depth = output_depth,)
+    
     return ConvNext(
         lattice_shape=lattice_shape,
         n_blocks=n_blocks,
@@ -180,33 +174,23 @@ def ConvNextVanilla(
         extract_patches=extract_patches,
     )
 
-def ConvNextExp(
-    lattice_shape: tuple,
+def ConvNextFT(
     n_blocks: tuple,
     features: tuple,
     expansion_factor: int,
     kernel_size: tuple,
-    downsample_factor: int,
     final_features: int,
     extract_patches: Callable,
+    q: tuple,
+    compute_positions: Callable,
 ):
+    output_head = FTHead(final_features,q,compute_positions)
     return ConvNext(
-        lattice_shape=lattice_shape,
         n_blocks=n_blocks,
         features=features,
         expansion_factor=expansion_factor,
         Encoder=Encoder,
-        Head=ExpHead,
+        head=output_head,
         kernel_size=kernel_size,
-        downsample_factor=downsample_factor,
-        final_features=final_features,
-        extract_patches=extract_patches,
-    )
-
-#register the output head function for serialization
-from nqxpack._src.lib_v1.closure import register_closure_simple_serialization
-from nqxpack._src.lib_v1.custom_types import register_serialization
-
-register_closure_simple_serialization(
-                    _create_output_head, "output_head", original_qualname='deepnets.net.ConvNext.net._create_output_head'
-                    )
+        extract_patches=extract_patches
+)

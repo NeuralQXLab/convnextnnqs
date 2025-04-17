@@ -1,10 +1,8 @@
-import deepnets.optimization.save_load as save_load
+import deepnets.utils.serialize as serialize
 import netket as nk
-import nqxpack
 import json
 import jax
 import numpy as np
-
 
 def compute(
     dirname: str,
@@ -27,18 +25,15 @@ def compute(
         json_path = dirname + "/post.json"
         post_path = dirname + "/post"
 
-    min_index, system, network = save_load.load(json_path, net_name, symmetry_stage = symmetry_stage)
+    min_index, system, network = serialize.load(json_path, net_name, symmetry_stage = symmetry_stage)
+    vars_path = f"{post_path}/vars{min_index}.mpack"
     print(network)
     sampler = nk.sampler.MetropolisExchange(
         system.hilbert_space, graph=system.graph
     )
     
-    vstate_load = nqxpack.load(f"{post_path}/vstate{min_index}.nk")
-    sampler = nk.sampler.MetropolisExchange(
-        system.hilbert_space, graph=system.graph, n_chains=n_chains
-    )
     vstate = nk.vqs.MCState(sampler,model=network)
-    vstate.variables = vstate_load.variables
+    vstate = serialize.load_variables(vars_path,vstate)
     operators = {
         "energy": system.hamiltonian,
     }

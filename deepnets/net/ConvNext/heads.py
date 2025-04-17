@@ -7,6 +7,7 @@ from netket import nn as nknn
 from netket import jax as nkjax
 from netket.jax import logsumexp_cplx as logsumexp
 from netket.utils.types import DType
+import einops
 
 def log_cosh(x):
     sgn_x = -2 * jnp.signbit(x.real) + 1
@@ -93,56 +94,6 @@ class OutputHead(nn.Module):
             log_cosh(z), axis=-1
         )  # logPsi = log \prod_{i=1}^Nfeatures cosh(z)
 
-
-class ExpHead(nn.Module):
-    """
-    Same as OutputHead but with logsumexp pooling over features at the end
-    """
-
-    lattice_shape: tuple
-    final_features: int
-
-    def setup(self):
-        self.out_layer_norm = nn.LayerNorm(dtype=jnp.float64, param_dtype=jnp.float64)
-
-        self.norm2 = nn.LayerNorm(
-            use_scale=True, use_bias=True, dtype=jnp.float64, param_dtype=jnp.float64
-        )
-        self.norm3 = nn.LayerNorm(
-            use_scale=True, use_bias=True, dtype=jnp.float64, param_dtype=jnp.float64
-        )
-
-        self.output_layer0 = nn.Dense(
-            self.final_features,
-            param_dtype=jnp.float64,
-            dtype=jnp.float64,
-            kernel_init=nn.initializers.xavier_uniform(),
-            bias_init=jax.nn.initializers.zeros,
-        )
-        self.output_layer1 = nn.Dense(
-            self.final_features,
-            param_dtype=jnp.float64,
-            dtype=jnp.float64,
-            kernel_init=nn.initializers.xavier_uniform(),
-            bias_init=jax.nn.initializers.zeros,
-        )
-
-    def __call__(self, x):
-        x = jnp.sum(
-            x, axis=tuple(-np.arange(len(self.lattice_shape)) - 2)
-        )  # Sum pooling over lattice (..., lattice, features) -> (..., features)
-        x = self.out_layer_norm(x)
-
-        amp = self.norm2(self.output_layer0(x))
-        sign = self.norm3(self.output_layer1(x))
-
-        z = amp + 1j * sign
-
-        return logsumexp(
-            log_cosh(z), axis=-1
-        )  # \Psi = log \sum_{i=1}^Nfeatures cosh(z)
-
-
 class UnitCellHead(nn.Module):
     """
     For using after an unpatched encoder.
@@ -311,3 +262,49 @@ class UnitCellHead(nn.Module):
         z = amp + 1j * sign
 
         return jnp.sum(log_cosh(z), axis=-1)  # sum over features at the end
+
+class FTHead(nn.Module):
+    """
+    Output head performing quantum number projection to a specific momentum sector
+    """
+    final_features: int #number of features
+    q: tuple #(qx,qy,..)
+    compute_positions: Callable #function to compute the (npatches,ndim) positions of the patches
+
+    def setup(self):
+
+        self.norm_real = nn.LayerNorm(
+            use_scale=True, use_bias=True, dtype=jnp.float64, param_dtype=jnp.float64
+        )
+        self.norm_imag = nn.LayerNorm(
+            use_scale=True, use_bias=True, dtype=jnp.float64, param_dtype=jnp.float64
+        )
+
+        self.dense_real = nn.Dense(
+            self.final_features,
+            param_dtype=jnp.float64,
+            dtype=jnp.float64,
+            kernel_init=nn.initializers.xavier_uniform(),
+            bias_init=jax.nn.initializers.zeros,
+        )
+        self.dense_imag = nn.Dense(
+            self.final_features,
+            param_dtype=jnp.float64,
+            dtype=jnp.float64,
+            kernel_init=nn.initializers.xavier_uniform(),
+            bias_init=jax.nn.initializers.zeros,
+        )
+
+    def __call__(self, x):
+        #input shape (batch,npx,npy, Nf)
+        x_real = self.norm_real(self.dense_real(x))
+        x_imag = self.norm_imag(self.dense_imag(x))
+        z = x_real + 1j*x_imag
+        z = jnp.sum(log_cosh(z), axis=-1) #(batch, npx,npy)
+        z = einops.rearrange(z,'batch npx npy -> batch (npx npy)')
+        positions = self.compute_positions() #(npx,npy,ndim)
+        positions = einops.rearrange(positions,'npx npy ndim -> (npx npy) ndim') #(npatches,ndim)
+        q = jnp.pi*jnp.array(self.q)
+        b = jnp.exp(-1j*positions@q) #(npatches,) vector
+        z = logsumexp(z,axis=-1,b = b)
+        return z
