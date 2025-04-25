@@ -1,0 +1,60 @@
+Job running on nodes: jean-zay-iam47
+recursion 0 started at Mon Oct 21 12:21:50 PM CEST 2024
+python -u -O /lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro/deepnets/optimization/run.py --L=8 --J 0.8 1.0 --n_blocks 8 --features 72 --expansion_factor=2 --downsample_factor=2 --kernel_width=3 --output_head=Vanilla --samples_per_rank=512 --chains_per_rank=512 --discard_fraction=0.0 --iters 2500 2500 2500 2500 --lr 0.01 0.01 0.01 0.01 --alpha 0.5 0.5 0.5 0.5 --diag_shift 0.01 0.01 0.01 0.01 --diag_shift_end 0.0001 0.0001 0.0001 0.0001 --r=1e-06 --chunk_size=512 --save_every=100 --symmetries=0 --symmetry_ramping=1 --momentum=0.9 --post_iters=50 --double_precision=1 --time_it=0 --show_progress=0 --checkpoint=1 --seed=294  --save_base /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/17_10_24/L=8/symm_ramp_3x3/4/ >> /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/17_10_24/L=8/symm_ramp_3x3/4/${SLURM_JOB_ID}.out &
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 8
+0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : hostname:  jean-zay-iam47
+2024-10-21 12:24:07.845797: W external/xla/xla/service/gpu/nvptx_compiler.cc:893] The NVIDIA driver's CUDA version is 12.4 which is older than the PTX compiler version 12.6.68. Because the driver is older than the PTX compiler version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+Double precision enabled =  True
+chunk_size = 512
+Running optimization...
+Symmetry stage 0 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #0
+Symmetry stage 1 on process 0:
+Total number of model parameters = 188136
+Using minSR
+2024-10-21 13:37:45.850731: E external/xla/xla/service/slow_operation_alarm.cc:65] Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[16384,72,6,6]{3,2,1,0}, f64[16384,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+2024-10-21 13:37:51.491724: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 6.641093s
+Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[16384,72,6,6]{3,2,1,0}, f64[16384,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+Symmetry stage 2 on process 0:
+Total number of model parameters = 188136
+Using minSR
+2024-10-21 17:04:45.959892: E external/xla/xla/service/slow_operation_alarm.cc:65] Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[32768,72,6,6]{3,2,1,0}, f64[32768,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+2024-10-21 17:04:57.718947: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 12.759130881s
+Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[32768,72,6,6]{3,2,1,0}, f64[32768,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+Symmetry stage 3 on process 0:
+Total number of model parameters = 188136
+Using minSR
+2024-10-21 22:57:49.616496: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.631953: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632032: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632104: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632186: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632267: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632348: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632581: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 101.51GiB (rounded to 108998988544)requested by op 
+2024-10-21 22:57:49.632664: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.632702: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.632823: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.632964: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.632998: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.633034: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.633116: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+2024-10-21 22:57:49.633340: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
+E1021 22:57:49.632911 2829108 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.633055 2829114 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.632794 2829106 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.633226 2829118 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.633468 2829104 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.633147 2829116 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.633098 2829112 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+E1021 22:57:49.632758 2829110 pjrt_stream_executor_client.cc:3067] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 108998988384 bytes.
+Out of memory, reducing chunk_size to 256 and retrying
+restoring checkpoint #0
+Time limit reached, resubmitting 0th sbatch...
+Submitted batch job 310497

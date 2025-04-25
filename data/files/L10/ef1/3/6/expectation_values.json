@@ -1,0 +1,1 @@
+{"n_chains": 32, "n_samples": 320000, "n_discard_per_chain": 10000, "energy": {"mean": -178.6263075800095, "error_of_mean": 0.0062438913536886406, "variance": 12.102046565090248, "tau_corr": 0.015432546414130055, "R_hat": 1.0000404338476345, "tau_corr_max": NaN}}

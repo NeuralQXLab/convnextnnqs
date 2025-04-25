@@ -1,0 +1,41 @@
+Job running on nodes: cholesky-gpu02
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 1
+0/1 : global [CudaDevice(id=0)]
+0/1 : local [CudaDevice(id=0)]
+0/1 : hostname:  cholesky-gpu02
+/mnt/beegfs/workdir/rajah.nutakki/repos/netket_pro_update/deepnets/expectation_value/expectation_value.py:44: UserWarning: For performance reasons, we suggest to use a power-of-two chunk size.
+  vstate.chunk_size = chunk_size
+/mnt/beegfs/workdir/rajah.nutakki/repos/netket_pro_update/deepnets/expectation_value/expectation_value.py:50: UserWarning: For performance reasons, we suggest to use a power-of-two chunk size.
+  vstate.chunk_size = chunk_size
+Arguments: Namespace(directory='/mnt/beegfs/workdir/rajah.nutakki/jeanzay_clone/jeanzay/deepNQS/ConvNext/13_01_25/final_features_depth1/2', net='ConvNext', n_samples_per_chain=10000, n_chains=32, n_chains_load=256, n_discard_per_chain=10000, chunk_size=1000)
+Computing expectation values...
+Using net_type=Vanilla
+FlipExpSum(
+    # attributes
+    module = SymmExpSum(
+        # attributes
+        module = ConvNext(
+            # attributes
+            lattice_shape = (10, 10)
+            n_blocks = (4,)
+            features = (72,)
+            expansion_factor = 2
+            Encoder = Encoder
+            Head = <lambda>
+            kernel_size = (3, 3)
+            downsample_factor = 2
+            final_features = 36
+            extract_patches = extract_patches_as2d
+        )
+        symm_group = PermutationGroup(elems=[Id(), Refl(45°)O[-1/2,1/2], Rot(90°), Glide[0,-1]O[-1/2,0], Rot(180°), Glide[1,-1], Rot(-90°), Glide[1,0]O[0,1/2]], degree=100)
+        character_id = None
+    )
+)
+vstate.chunk_size = 1000
+vstate.n_chains = 32
+vstates.n_samples = 320000
+vstate.n_discard_per_chain = 10000
+Finished computing expectation values
+Time taken 9479.0s

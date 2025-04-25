@@ -1,0 +1,67 @@
+Job running on nodes: jean-zay-iam06
+Resolved 60 packages in 5ms
+Error processing line 1 of /lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/_virtualenv.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 206, in addpackage
+    File "<string>", line 1, in <module>
+  ModuleNotFoundError: No module named '_virtualenv'
+
+Remainder of file ignored
+Error processing line 1 of /lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/distutils-precedence.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 206, in addpackage
+    File "<string>", line 1, in <module>
+  AttributeError: module '_distutils_hack' has no attribute 'add_shim'
+
+Remainder of file ignored
+Error processing line 1 of /lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/_virtualenv.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 206, in addpackage
+    File "<string>", line 1, in <module>
+  ModuleNotFoundError: No module named '_virtualenv'
+
+Remainder of file ignored
+Error processing line 1 of /lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/distutils-precedence.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 206, in addpackage
+    File "<string>", line 1, in <module>
+  AttributeError: module '_distutils_hack' has no attribute 'add_shim'
+
+Remainder of file ignored
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 8
+0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : hostname:  jean-zay-iam06
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/scripts/../optimization/run.py", line 4, in <module>
+    import deepnets.optimization.protocols as opt
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 9, in <module>
+    import netket_checkpoint as nkc
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/__init__.py", line 1, in <module>
+    from netket_checkpoint import checkpoint as checkpoint
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/checkpoint.py", line 3, in <module>
+    from netket_checkpoint._src.checkpoint import CheckpointManager as CheckpointManager
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/_src/__init__.py", line 1, in <module>
+    from . import serializers
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/_src/serializers/__init__.py", line 3, in <module>
+    from . import history  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/_src/serializers/history.py", line 26, in <module>
+    import orbax.checkpoint as ocp
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/__init__.py", line 24, in <module>
+    from orbax.checkpoint import args
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/args.py", line 31, in <module>
+    from orbax.checkpoint._src.handlers.composite_checkpoint_handler import CompositeArgs as Composite
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/_src/handlers/composite_checkpoint_handler.py", line 65, in <module>
+    from orbax.checkpoint._src.handlers import proto_checkpoint_handler
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/_src/handlers/proto_checkpoint_handler.py", line 26, in <module>
+    from google.protobuf import message
+ImportError: cannot import name 'message' from 'google.protobuf' (unknown location)
+srun: error: jean-zay-iam06: task 0: Exited with exit code 1
+srun: Terminating StepId=406364.0

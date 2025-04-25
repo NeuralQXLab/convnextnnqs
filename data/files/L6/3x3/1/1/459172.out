@@ -1,0 +1,71 @@
+Job running on nodes: jean-zay-iam01
+recursion  started at Fri Nov  1 09:13:19 PM CET 2024
+python -u -O /lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/deepnets/optimization/run.py --L=6 --J 0.8 1.0 --n_blocks 8 --features 72 --expansion_factor=2 --downsample_factor=2 --kernel_width=3 --output_head=Vanilla --samples_per_rank=512 --chains_per_rank=512 --discard_fraction=0.0 --iters 2500 2500 2500 2500 --lr 0.01 0.01 0.01 0.01 --alpha 0.5 0.5 0.5 0.5 --diag_shift 0.01 0.01 0.01 0.01 --diag_shift_end 0.0001 0.0001 0.0001 0.0001 --r=1e-06 --chunk_size=256 --save_every=100 --symmetries=0 --symmetry_ramping=1 --momentum=0.9 --post_iters=50 --double_precision=1 --time_it=0 --show_progress=0 --checkpoint=1 --seed=75  --save_base /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/ >> /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/${SLURM_JOB_ID}.out &
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 8
+0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : hostname:  jean-zay-iam01
+Double precision enabled =  True
+chunk_size = 256
+Running optimization...
+Symmetry stage 0 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+restoring checkpoint #2500
+Symmetry stage 1 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+Symmetry stage 2 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+Symmetry stage 3 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+Finished optimization
+Performing 50 additional optimization steps...
+Sampling parameters:
+n_chains = 256
+n_samples = 4096
+n_samples_per_chain = 16
+n_discard_per_chain = 16
+restoring checkpoint #32
+  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:57<?, ?it/s, Energy=-65.0512-0.0001j ± 0.0034 [σ²=0.0540, R̂=1.0310]] 64%|██████▍   | 32/50 [00:57<00:32,  1.79s/it, Energy=-65.0512-0.0001j ± 0.0034 [σ²=0.0540, R̂=1.0310]] 64%|██████▍   | 32/50 [01:43<00:32,  1.79s/it, Energy=-65.0512-0.0001j ± 0.0034 [σ²=0.0540, R̂=1.0310]] 64%|██████▍   | 32/50 [01:10<00:32,  1.79s/it, Energy=-65.0500-0.0003j ± 0.0039 [σ²=0.0592, R̂=1.0297]] 66%|██████▌   | 33/50 [01:11<00:39,  2.30s/it, Energy=-65.0500-0.0003j ± 0.0039 [σ²=0.0592, R̂=1.0297]]WARNING:absl:[process=0][thread=async_save_6] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/33.orbax-checkpoint-tmp-0/loggers.orbax-checkpoint-tmp-4, 
+ 66%|██████▌   | 33/50 [01:23<00:39,  2.30s/it, Energy=-65.0484-0.0008j ± 0.0040 [σ²=0.0686, R̂=1.0297]] 68%|██████▊   | 34/50 [01:23<00:46,  2.91s/it, Energy=-65.0484-0.0008j ± 0.0040 [σ²=0.0686, R̂=1.0297]]WARNING:absl:[process=0][thread=async_save_7] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/34.orbax-checkpoint-tmp-8/loggers.orbax-checkpoint-tmp-12, 
+ 68%|██████▊   | 34/50 [01:36<00:46,  2.91s/it, Energy=-65.0536-0.0001j ± 0.0040 [σ²=0.0812, R̂=1.0231]] 70%|███████   | 35/50 [01:36<00:55,  3.67s/it, Energy=-65.0536-0.0001j ± 0.0040 [σ²=0.0812, R̂=1.0231]]WARNING:absl:[process=0][thread=async_save_8] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/35.orbax-checkpoint-tmp-16/loggers.orbax-checkpoint-tmp-20, 
+ 70%|███████   | 35/50 [01:49<00:55,  3.67s/it, Energy=-65.0516+0.0002j ± 0.0042 [σ²=0.0705, R̂=1.0329]] 72%|███████▏  | 36/50 [01:49<01:03,  4.57s/it, Energy=-65.0516+0.0002j ± 0.0042 [σ²=0.0705, R̂=1.0329]]WARNING:absl:[process=0][thread=async_save_9] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/36.orbax-checkpoint-tmp-24/loggers.orbax-checkpoint-tmp-28, 
+ 72%|███████▏  | 36/50 [02:02<01:03,  4.57s/it, Energy=-65.0464+0.0002j ± 0.0040 [σ²=0.0604, R̂=1.0306]] 74%|███████▍  | 37/50 [02:02<01:12,  5.59s/it, Energy=-65.0464+0.0002j ± 0.0040 [σ²=0.0604, R̂=1.0306]]WARNING:absl:[process=0][thread=async_save_10] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/37.orbax-checkpoint-tmp-32/loggers.orbax-checkpoint-tmp-36, 
+ 74%|███████▍  | 37/50 [02:15<01:12,  5.59s/it, Energy=-65.0569+0.0008j ± 0.0042 [σ²=0.0723, R̂=1.0298]] 76%|███████▌  | 38/50 [02:15<01:20,  6.68s/it, Energy=-65.0569+0.0008j ± 0.0042 [σ²=0.0723, R̂=1.0298]]WARNING:absl:[process=0][thread=async_save_11] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/38.orbax-checkpoint-tmp-40/loggers.orbax-checkpoint-tmp-44, 
+ 76%|███████▌  | 38/50 [02:28<01:20,  6.68s/it, Energy=-65.0460+0.0000j ± 0.0042 [σ²=0.0771, R̂=1.0252]] 78%|███████▊  | 39/50 [02:28<01:25,  7.77s/it, Energy=-65.0460+0.0000j ± 0.0042 [σ²=0.0771, R̂=1.0252]]WARNING:absl:[process=0][thread=async_save_12] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/39.orbax-checkpoint-tmp-48/loggers.orbax-checkpoint-tmp-52, 
+ 78%|███████▊  | 39/50 [02:41<01:25,  7.77s/it, Energy=-65.0563+0.0006j ± 0.0044 [σ²=0.0726, R̂=1.0349]] 80%|████████  | 40/50 [02:41<01:28,  8.80s/it, Energy=-65.0563+0.0006j ± 0.0044 [σ²=0.0726, R̂=1.0349]]WARNING:absl:[process=0][thread=async_save_13] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/40.orbax-checkpoint-tmp-56/loggers.orbax-checkpoint-tmp-60, 
+ 80%|████████  | 40/50 [02:54<01:28,  8.80s/it, Energy=-65.0460-0.0006j ± 0.0038 [σ²=0.0554, R̂=1.0321]] 82%|████████▏ | 41/50 [02:54<01:27,  9.71s/it, Energy=-65.0460-0.0006j ± 0.0038 [σ²=0.0554, R̂=1.0321]]WARNING:absl:[process=0][thread=async_save_14] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/41.orbax-checkpoint-tmp-64/loggers.orbax-checkpoint-tmp-68, 
+ 82%|████████▏ | 41/50 [03:07<01:27,  9.71s/it, Energy=-65.0517+0.0006j ± 0.0043 [σ²=0.0798, R̂=1.0236]] 84%|████████▍ | 42/50 [03:07<01:23, 10.48s/it, Energy=-65.0517+0.0006j ± 0.0043 [σ²=0.0798, R̂=1.0236]]WARNING:absl:[process=0][thread=async_save_15] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/42.orbax-checkpoint-tmp-72/loggers.orbax-checkpoint-tmp-76, 
+ 84%|████████▍ | 42/50 [03:19<01:23, 10.48s/it, Energy=-65.0447-0.0017j ± 0.0043 [σ²=0.0772, R̂=1.0327]] 86%|████████▌ | 43/50 [03:19<01:17, 11.09s/it, Energy=-65.0447-0.0017j ± 0.0043 [σ²=0.0772, R̂=1.0327]]WARNING:absl:[process=0][thread=async_save_16] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/43.orbax-checkpoint-tmp-80/loggers.orbax-checkpoint-tmp-84, 
+ 86%|████████▌ | 43/50 [03:32<01:17, 11.09s/it, Energy=-65.0457+0.0010j ± 0.0041 [σ²=0.0622, R̂=1.0312]] 88%|████████▊ | 44/50 [03:32<01:09, 11.57s/it, Energy=-65.0457+0.0010j ± 0.0041 [σ²=0.0622, R̂=1.0312]]WARNING:absl:[process=0][thread=async_save_17] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/44.orbax-checkpoint-tmp-88/loggers.orbax-checkpoint-tmp-92, 
+ 88%|████████▊ | 44/50 [03:45<01:09, 11.57s/it, Energy=-65.0479-0.0010j ± 0.0059 [σ²=0.1333, R̂=1.0310]] 90%|█████████ | 45/50 [03:45<00:59, 11.93s/it, Energy=-65.0479-0.0010j ± 0.0059 [σ²=0.1333, R̂=1.0310]]WARNING:absl:[process=0][thread=async_save_18] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/45.orbax-checkpoint-tmp-96/loggers.orbax-checkpoint-tmp-100, 
+ 90%|█████████ | 45/50 [03:58<00:59, 11.93s/it, Energy=-65.0474+0.0001j ± 0.0052 [σ²=0.1267, R̂=1.0281]] 92%|█████████▏| 46/50 [03:58<00:48, 12.20s/it, Energy=-65.0474+0.0001j ± 0.0052 [σ²=0.1267, R̂=1.0281]]WARNING:absl:[process=0][thread=async_save_19] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/46.orbax-checkpoint-tmp-104/loggers.orbax-checkpoint-tmp-108, 
+ 92%|█████████▏| 46/50 [04:11<00:48, 12.20s/it, Energy=-65.0426-0.0013j ± 0.0046 [σ²=0.0951, R̂=1.0267]] 94%|█████████▍| 47/50 [04:11<00:37, 12.40s/it, Energy=-65.0426-0.0013j ± 0.0046 [σ²=0.0951, R̂=1.0267]]WARNING:absl:[process=0][thread=async_save_20] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/47.orbax-checkpoint-tmp-112/loggers.orbax-checkpoint-tmp-116, 
+ 94%|█████████▍| 47/50 [04:24<00:37, 12.40s/it, Energy=-65.0502+0.0004j ± 0.0036 [σ²=0.0640, R̂=1.0248]] 96%|█████████▌| 48/50 [04:24<00:25, 12.54s/it, Energy=-65.0502+0.0004j ± 0.0036 [σ²=0.0640, R̂=1.0248]]WARNING:absl:[process=0][thread=async_save_21] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/48.orbax-checkpoint-tmp-120/loggers.orbax-checkpoint-tmp-124, 
+ 96%|█████████▌| 48/50 [04:37<00:25, 12.54s/it, Energy=-65.0476+0.0003j ± 0.0044 [σ²=0.0683, R̂=1.0349]] 98%|█████████▊| 49/50 [04:37<00:12, 12.65s/it, Energy=-65.0476+0.0003j ± 0.0044 [σ²=0.0683, R̂=1.0349]]WARNING:absl:[process=0][thread=async_save_22] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/49.orbax-checkpoint-tmp-128/loggers.orbax-checkpoint-tmp-132, 
+WARNING:absl:[process=0][thread=async_save_23] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/post/checkpoint/50.orbax-checkpoint-tmp-136/loggers.orbax-checkpoint-tmp-140, 
+100%|██████████| 50/50 [04:38<00:00,  5.56s/it, Energy=-65.0476+0.0003j ± 0.0044 [σ²=0.0683, R̂=1.0349]]
+Final 50 energies = [-65.05669636 -65.04318759 -65.0509116  -65.04622308 -65.04403085
+ -65.04463072 -65.04497903 -65.05030996 -65.04768358 -65.05103332
+ -65.04919104 -65.04054465 -65.05046521 -65.05072989 -65.04932916
+ -65.05341325 -65.03693532 -65.04908666 -65.045236   -65.05358901
+ -65.04072575 -65.05531713 -65.04529404 -65.05127638 -65.05437384
+ -65.0497655  -65.04187115 -65.05212395 -65.04521508 -65.05421976
+ -65.04441431 -65.04048211 -65.05121313 -65.05001202 -65.04840358
+ -65.05355066 -65.05164085 -65.04636296 -65.05692696 -65.04601821
+ -65.05626846 -65.04603061 -65.05174554 -65.04465686 -65.04573873
+ -65.047904   -65.04741735 -65.04261901 -65.05015045 -65.04758697]
+min_index=38
+Finished additional optimization steps
+Post-process time = 326s
+Saving simulation results to /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/1/opt.log
+Finished on process 0
