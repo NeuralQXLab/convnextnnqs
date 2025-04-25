@@ -66,6 +66,13 @@ class ConvNext(NetBase):
         parser.add_argument(
             "--output_depth", type=int, default=1, help="Depth of output head"
         )
+        parser.add_argument(
+            "--q",
+            type = float,
+            action = "append",
+            required = False,
+            help = "Momentum of quantum state in units of pi"
+        )
 
     @staticmethod
     def read_arguments(args: argparse.Namespace):
@@ -79,6 +86,7 @@ class ConvNext(NetBase):
             args.final_features,
             args.init_kernel_width,
             args.output_depth,
+            args.q
         )
 
     def __init__(
@@ -93,7 +101,7 @@ class ConvNext(NetBase):
         init_kernel_width: int,
         output_depth: int,
         q: tuple[float],
-        system: system.Spin_Half,
+        system: system.SpinHalf,
     ):
         self.name = "ConvNext"
         self.lattice_shape = (system.L, system.L)
@@ -200,6 +208,21 @@ def from_dict(arg_dict: dict, system, network_name="ConvNext"):
     except KeyError:
         pass
     # print(arg_dict)
+    if "downsample_factor" in arg_dict.keys():
+            del arg_dict["downsample_factor"]
+    if not "output_depth" in arg_dict.keys():
+        arg_dict["output_depth"] = 1
+    if not "q" in arg_dict.keys():
+        arg_dict["q"] = [0,0]
+
+    try:
+        if isinstance(arg_dict["n_blocks"], (tuple, list)):
+            arg_dict["n_blocks"] = arg_dict["n_blocks"][0]
+        if isinstance(arg_dict["features"], (tuple, list)):
+            arg_dict["features"] = arg_dict["features"][0]
+    except KeyError:
+        pass
+    
     return network(**arg_dict, system=system)
 
 

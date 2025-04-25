@@ -3,22 +3,24 @@
 import netket as nk
 import netket.experimental as nke
 from deepnets.net import ConvNext
-from deepnets.system import Square_Heisenberg, Shastry_Sutherland
+from deepnets.system import SquareHeisenberg, ShastrySutherland
 import optax
 
 # System
 L = 6
 J = [0.8,1.0]
-system = Shastry_Sutherland(L=L, J = J)
+system = ShastrySutherland(L=L, J = J)
 
 # Network
 n_blocks = (2,)
 features = (12,)
 expansion_factor = 2
 downsample_factor = 2  # linear_patch_size
-net_type = "Vanilla"
+net_type = "Vanilla" #Vanilla/NoPatching/FT
 kernel_width = 2
+output_depth=1
 final_features = features[0]
+q=(0,0) #dummy if not using FT
 net_wrapped = ConvNext(
     n_blocks=n_blocks,
     features=features,
@@ -27,7 +29,9 @@ net_wrapped = ConvNext(
     kernel_width=kernel_width,
     downsample_factor=downsample_factor,
     final_features=final_features,
-    init_kernel_width=1, #dummty if not using NoPatching
+    init_kernel_width=1, #dummy if not using NoPatching
+    output_depth=output_depth,
+    q = q,
     system=system,
 )
 nets = [
@@ -85,7 +89,7 @@ vstate = nk.vqs.MCState(
 )
 
 # Run simulation
-driver = nke.driver.VMC_SRt_ntk(
+driver = nke.driver.VMC_SRt(
     hamiltonian=system.hamiltonian,
     optimizer=optimizer,
     linear_solver_fn=solver,

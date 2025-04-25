@@ -4,7 +4,7 @@
 
 import netket as nk
 from deepnets.net import ConvNext
-from deepnets.system import Shastry_Sutherland, Square_Heisenberg
+from deepnets.system import ShastrySutherland, SquareHeisenberg
 from deepnets.optimization.protocols import Protocol
 import deepnets.utils.serialize as serialize
 import argparse
@@ -18,7 +18,7 @@ import jax.numpy as jnp
 #Model parameters
 L = 6
 J = [0.8,1.0]
-system = Shastry_Sutherland(L=L, J = J)
+system = ShastrySutherland(L=L, J = J)
 #sign_rule = [False]
 #Network parameters
 #ConvNext
@@ -30,6 +30,7 @@ kernel_width=3
 net_type="Vanilla"
 final_features = features[0]
 output_depth = 1
+q=(0,0)
 
 network = ConvNext(n_blocks = n_blocks,
                    features = features,
@@ -40,6 +41,7 @@ network = ConvNext(n_blocks = n_blocks,
                    final_features = final_features,
                    init_kernel_width = 1,
                    output_depth = output_depth,
+                   q = q,
                    system = system)
 args = {"lr": 1e-3,
         "lr_factor":0.5,

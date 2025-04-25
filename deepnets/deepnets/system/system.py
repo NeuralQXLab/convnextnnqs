@@ -7,7 +7,7 @@ import jax.numpy as jnp
 import einops
 
 from collections.abc import Sequence
-from deepnets.system.base import Spin_Half
+from deepnets.system.base import SpinHalf
 from deepnets.system.utils import reflect_and_translate, reflect_and_translate_group
 from netket.utils.group._point_group import PointGroup
 from netket.utils.group import PermutationGroup, Identity
@@ -17,7 +17,7 @@ from netket.nn.blocks import SymmExpSum
 from deepnets.nn.blocks import FlipExpSum
 
 
-class Square_Heisenberg(Spin_Half):
+class SquareHeisenberg(SpinHalf):
     rotation_group = nk.utils.group.planar.C(4)
 
     @staticmethod
@@ -100,7 +100,7 @@ class Square_Heisenberg(Spin_Half):
         sz_sector=0,
     ):
         super().__init__(N=int(L**2), L=L, J=J, sz_sector=sz_sector)
-        self.name = "Square_Heisenberg"
+        self.name = "SquareHeisenberg"
         self.patching = patching
         self.graph = nk.graph.Square(length=L, max_neighbor_order=len(J), pbc=self.pbc)
         self.graph_name = "Square"
@@ -181,7 +181,7 @@ class Square_Heisenberg(Spin_Half):
         }
 
 
-class Shastry_Sutherland(Spin_Half):
+class ShastrySutherland(SpinHalf):
     basis_vecs = np.array([[2, 0], [0, 2]])
     unit_cell = np.array([[-0.5, -0.5], [0.5, -0.5], [-0.5, 0.5], [0.5, 0.5]])
     custom_edges = [
@@ -229,12 +229,12 @@ class Shastry_Sutherland(Spin_Half):
     @staticmethod
     def get_graph(L: int) -> nk.graph.Graph:
         return nk.graph.Lattice(
-            basis_vectors=Shastry_Sutherland.basis_vecs,
-            site_offsets=Shastry_Sutherland.unit_cell,
-            custom_edges=Shastry_Sutherland.custom_edges,
+            basis_vectors=ShastrySutherland.basis_vecs,
+            site_offsets=ShastrySutherland.unit_cell,
+            custom_edges=ShastrySutherland.custom_edges,
             extent=[L // 2, L // 2],
             pbc=True,
-            point_group=Shastry_Sutherland.point_group,
+            point_group=ShastrySutherland.point_group,
         )
 
     @staticmethod
@@ -269,7 +269,7 @@ class Shastry_Sutherland(Spin_Half):
         """
         if x.ndim == 1:
             x = x.reshape((1, x.shape[0]))  # add batch dimension
-        x = Shastry_Sutherland.extract_patches_as2d(
+        x = ShastrySutherland.extract_patches_as2d(
             x=x, b=2, lattice_shape=lattice_shape
         )  # -> (nbatch, ux, uy, 4) where ux,uy label unit cell coords
         x = x.reshape(
@@ -285,7 +285,7 @@ class Shastry_Sutherland(Spin_Half):
         if len(J) != 2:
             raise ValueError("Shastry-Sutherland model requires J1 and J2")
         super().__init__(N=int(L**2), L=L, J=J, sz_sector=sz_sector)
-        self.name = "Shastry_Sutherland"
+        self.name = "ShastrySutherland"
         self.graph = nk.graph.Lattice(
             basis_vectors=self.basis_vecs,
             site_offsets=self.unit_cell,
@@ -294,7 +294,7 @@ class Shastry_Sutherland(Spin_Half):
             pbc=self.pbc,
             point_group=self.point_group,
         )
-        self.graph_name = "Shastry_Sutherland"
+        self.graph_name = "ShastrySutherland"
         self.graph_symmetries = {
             "C4": self.graph.point_group(self.rotation_group),
             "Glides": self.graph.point_group(self.glide_group),
@@ -328,8 +328,10 @@ class Shastry_Sutherland(Spin_Half):
         return patch_positions.transpose((1,2,0)) #(npx,npy,2)
 
 systems = {
-    "Square_Heisenberg": Square_Heisenberg,
-    "Shastry_Sutherland": Shastry_Sutherland
+    "Square_Heisenberg": SquareHeisenberg, #compatibility with old naming
+    "Shastry_Sutherland": ShastrySutherland, #compatibility with old naming
+    "SquareHeisenberg": SquareHeisenberg,
+    "ShastrySutherland": ShastrySutherland
 }
 
 
@@ -351,6 +353,6 @@ def load(file_name: str, prefix: str = None):
     Return the system specified by the dictionary, dict[prefix], contained in
     the json file file_filename
     """
-    arg_dict = Spin_Half.argument_loader(file_name, prefix)
+    arg_dict = SpinHalf.argument_loader(file_name, prefix)
     loaded_system = from_dict(arg_dict)
     return loaded_system

@@ -1,7 +1,7 @@
 #Run expectation value computation with:
-# uv run run_expvalues.py --config_file example_config_expvalues.yaml --other_optional_parameters
+# uv run run_expvalues.py --config config_exp.yaml --other_optional_parameters
 # or
-# python run_expvalues.py --config_file example_config_expvalues.yaml --other_optional_parameters
+# python run_expvalues.py --config config_exp.yaml --other_optional_parameters
 
 import deepnets.config.processes
 import deepnets.config.args as args

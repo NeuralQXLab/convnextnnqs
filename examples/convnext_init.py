@@ -1,14 +1,13 @@
 #How to initialize the unwrapped vanilla convnext
-
 from deepnets.net.ConvNext.net import ConvNextVanilla
-from deepnets.system import Shastry_Sutherland, Square_Heisenberg
+from deepnets.system import ShastrySutherland
 import jax
 import jax.numpy as jnp
 
 # System
 L = 6
 J = [0.8,1.0]
-system = Shastry_Sutherland(L=L, J = J)
+system = ShastrySutherland(L=L, J = J)
 
 # Network
 n_blocks = (2,)

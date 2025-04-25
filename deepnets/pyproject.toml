@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling>=1.8.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deepnets"
+requires-python = ">=3.10"
+dependencies = [
+    "jax==0.4.38",
+    "netket==3.17",
+    "einops>=0.6",
+    "configargparse"
+]
+version = "0.1"
+
+[tool.hatch.build]
+include = ["*"]

@@ -1,20 +1,20 @@
 #Run optimization with:
-# uv run run_optimization.py --config_file example_config_optimization.yaml --other_optional_parameters
+# uv run run_optimization.py --config_file config_opt.yaml --other_optional_parameters
 # or
-# python run_optimization.py --config_file example_config_optimization.yaml --other_optional_parameters
+# python run_optimization.py --config_file config_opt.yaml --other_optional_parameters
 
 import deepnets.config.processes
 import deepnets.optimization.protocols as opt
 import deepnets.config.args as args
 from deepnets.data import save as saver
-from deepnets.system import Square_Heisenberg, Shastry_Sutherland
+from deepnets.system import SquareHeisenberg, ShastrySutherland
 from deepnets.net import ConvNext
 import netket as nk
 import jax
 
 systems = {
-    "Square_Heisenberg": Square_Heisenberg,
-    "Shastry_Sutherland": Shastry_Sutherland,
+    "SquareHeisenberg": SquareHeisenberg,
+    "ShastrySutherland": ShastrySutherland,
 }
 networks = {"ConvNext": ConvNext}
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--system",
         type=str,
-        help="Which system class to use, options are: Square_Heisenberg, Shastry_Sutherland",
+        help="Which system class to use, options are: SquareHeisenberg, ShastrySutherland",
     )
     parser.add_argument(
         "--network",

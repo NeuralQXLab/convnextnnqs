@@ -1,10 +1,10 @@
 #Run optimization with:
-# uv run run_optimization.py --config_file example_config_optimization.yaml --other_optional_parameters
+# uv run run_optimization.py --config config_opt.yaml --other_optional_parameters
 # or
-# python run_optimization.py --config_file example_config_optimization.yaml --other_optional_parameters
+# python run_optimization.py --config config_opt.yaml --other_optional_parameters
 
 ############ System parameters
-system: "Shastry_Sutherland"  #Square_Heisenberg / Shastry_Sutherland
+system: "ShastrySutherland"  #SquareHeisenberg / ShastrySutherland
 L: 4
 J: [0.8, 1]
 #sign_rule: [0,0] #Square_Heisenberg
@@ -21,6 +21,7 @@ kernel_width: 2
 downsample_factor: 2
 final_features: 12
 init_kernel_width: 1 #dummy for net_type = Vanilla
+q: [0,0]
 
 ########### Optimization Parameters
 samples_per_rank: 1024

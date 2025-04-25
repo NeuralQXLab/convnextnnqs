@@ -3,7 +3,7 @@ from collections.abc import Sequence
 import json
 
 
-class Spin_Half:
+class SpinHalf:
     name = "None"
     graph_name = "None"
     hamiltonian_name = "None"

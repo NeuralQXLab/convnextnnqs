@@ -167,7 +167,7 @@ def ConvNextVanilla(
         features=features,
         expansion_factor=expansion_factor,
         Encoder=Encoder,
-        Head=output_head,
+        head=output_head,
         kernel_size=kernel_size,
         downsample_factor=downsample_factor,
         final_features=final_features,
