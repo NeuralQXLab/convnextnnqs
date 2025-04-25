@@ -1,136 +1,0 @@
-Job running on nodes: jean-zay-iam25
-Resolved 60 packages in 127ms
-Configuring sharding...
-Number of distributed processes = 1
-Number of total devices: 8
-0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
-0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
-0/1 : hostname:  jean-zay-iam25
-args_setup: Namespace(config='/lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/04_12_24/L10_4,5x5/1/config.yaml', system='Shastry_Sutherland', network='ConvNext')
-args: Namespace(config=None, system=None, network=None, L=10, J=[0.8, 1.0], n_blocks=[4], features=[72], expansion_factor=2, net_type='Vanilla', kernel_width=5, downsample_factor=2, init_kernel_width=1, samples_per_rank=512, n_chains_per_rank=512, discard_fraction=0.0, iters=[2500, 2500, 2500, 2500], lr=[0.01, 0.01, 0.01, 0.01], diag_shift=[0.05, 0.05, 0.05, 0.05], diag_shift_factor=[0.0001, 0.0001, 0.0001, 0.0001], r=1e-06, save_base='', save_num=0, seed=20, time_it=0, show_progress=1, chunk_size=256, lr_factor=[0.5, 0.5, 0.5, 0.5], save_every=100, symmetries=0, symmetry_ramping=1, momentum=0.9, checkpoint=1, post_iters=50, sweep_factor=1, double_precision=1)
-Double precision enabled =  True
-Using net_type=Vanilla
-Number of symmetry stages = 4
-Maximum no. of parameters = 104328, total number of samples = 4096
-Using minSR = True
-Running optimization...
-Symmetry stage 0/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-10 21:11:28.165334: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-  0%|          | 0/1 [00:32<?, ?it/s, Energy=100.29+0.82j ± 0.64 [σ²=1660.12]]100%|██████████| 1/1 [00:00<00:00,  3.47it/s, Energy=100.29+0.82j ± 0.64 [σ²=1660.12]]100%|██████████| 1/1 [00:00<00:00,  3.47it/s, Energy=100.29+0.82j ± 0.64 [σ²=1660.12]]
-Compilation time = 33s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-177.984+0.008j ± 0.065 [σ²=17.120]]100%|█████████▉| 2499/2500 [00:00<00:00, 6673.53it/s, Energy=-177.984+0.008j ± 0.065 [σ²=17.120]]2024-12-10 21:11:53.237756: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-100%|█████████▉| 2499/2500 [00:17<00:00, 6673.53it/s, Energy=-177.984+0.008j ± 0.065 [σ²=17.120]]100%|█████████▉| 2499/2500 [00:19<00:00, 6673.53it/s, Energy=-177.984+0.008j ± 0.065 [σ²=17.120]]100%|██████████| 2500/2500 [00:00<00:00, 6411.13it/s, Energy=-177.984+0.008j ± 0.065 [σ²=17.120]]
-Optimization time = 19s
-Symmetry stage 1/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-10 21:12:25.247461: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-  0%|          | 0/1 [00:27<?, ?it/s, Energy=-178.85-0.62j ± 0.51 [σ²=1080.57]]100%|██████████| 1/1 [00:00<00:00,  3.29it/s, Energy=-178.85-0.62j ± 0.51 [σ²=1080.57]]100%|██████████| 1/1 [00:00<00:00,  3.28it/s, Energy=-178.85-0.62j ± 0.51 [σ²=1080.57]]
-Compilation time = 28s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-179.078-0.001j ± 0.044 [σ²=7.768]]100%|█████████▉| 2499/2500 [00:00<00:00, 4508.29it/s, Energy=-179.078-0.001j ± 0.044 [σ²=7.768]]100%|█████████▉| 2499/2500 [00:14<00:00, 4508.29it/s, Energy=-179.078-0.001j ± 0.044 [σ²=7.768]]2024-12-10 21:12:50.590845: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-100%|█████████▉| 2499/2500 [00:25<00:00, 4508.29it/s, Energy=-179.078-0.001j ± 0.044 [σ²=7.768]]100%|██████████| 2500/2500 [00:00<00:00, 4374.55it/s, Energy=-179.078-0.001j ± 0.044 [σ²=7.768]]
-Optimization time = 26s
-Symmetry stage 2/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-10 21:13:29.001366: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-  0%|          | 0/1 [00:32<?, ?it/s, Energy=-178.98-0.19j ± 0.19 [σ²=152.16]]100%|██████████| 1/1 [00:00<00:00,  3.03it/s, Energy=-178.98-0.19j ± 0.19 [σ²=152.16]]100%|██████████| 1/1 [00:00<00:00,  3.03it/s, Energy=-178.98-0.19j ± 0.19 [σ²=152.16]]
-Compilation time = 33s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-179.436+0.006j ± 0.037 [σ²=5.515]]100%|█████████▉| 2499/2500 [00:00<00:00, 9543.38it/s, Energy=-179.436+0.006j ± 0.037 [σ²=5.515]]100%|█████████▉| 2499/2500 [00:19<00:00, 9543.38it/s, Energy=-179.436+0.006j ± 0.037 [σ²=5.515]]2024-12-10 21:13:59.219149: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-100%|█████████▉| 2499/2500 [00:31<00:00, 9543.38it/s, Energy=-179.436+0.006j ± 0.037 [σ²=5.515]]100%|██████████| 2500/2500 [00:00<00:00, 8962.23it/s, Energy=-179.436+0.006j ± 0.037 [σ²=5.515]]
-Optimization time = 31s
-Symmetry stage 3/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-10 21:14:55.172321: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-  0%|          | 0/1 [00:53<?, ?it/s, Energy=-179.05+0.11j ± 0.12 [σ²=59.20]]100%|██████████| 1/1 [00:00<00:00,  3.36it/s, Energy=-179.05+0.11j ± 0.12 [σ²=59.20]]100%|██████████| 1/1 [00:00<00:00,  3.35it/s, Energy=-179.05+0.11j ± 0.12 [σ²=59.20]]
-Compilation time = 54s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-179.500-0.000j ± 0.029 [σ²=3.533]]100%|█████████▉| 2499/2500 [00:00<00:00, 8465.35it/s, Energy=-179.500-0.000j ± 0.029 [σ²=3.533]]100%|█████████▉| 2499/2500 [00:17<00:00, 8465.35it/s, Energy=-179.500-0.000j ± 0.029 [σ²=3.533]]2024-12-10 21:15:42.576116: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-100%|█████████▉| 2499/2500 [00:48<00:00, 8465.35it/s, Energy=-179.500-0.000j ± 0.029 [σ²=3.533]]100%|██████████| 2500/2500 [00:00<00:00, 7876.86it/s, Energy=-179.500-0.000j ± 0.029 [σ²=3.533]]
-Optimization time = 49s
-Finished optimization
-Performing 50 additional optimization steps...
-Sampling parameters:
-n_chains = 256
-n_samples = 4096
-n_discard_per_chain = 128
-restoring checkpoint #12
-  0%|          | 0/50 [00:00<?, ?it/s]2024-12-10 21:18:27.276374: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
-  0%|          | 0/50 [02:40<?, ?it/s, Energy=-179.505-0.001j ± 0.029 [σ²=3.185, R̂=1.0347]] 24%|██▍       | 12/50 [02:40<08:29, 13.40s/it, Energy=-179.505-0.001j ± 0.029 [σ²=3.185, R̂=1.0347]]2024-12-10 21:20:56.640577: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
-= 0 : ui8, lower = t
-^
-Fall back to parse the raw backend config str.
- 24%|██▍       | 12/50 [05:12<08:29, 13.40s/it, Energy=-179.505-0.001j ± 0.029 [σ²=3.185, R̂=1.0347]] 24%|██▍       | 12/50 [04:43<14:58, 23.64s/it, Energy=-179.505-0.001j ± 0.029 [σ²=3.185, R̂=1.0347]]
-Traceback (most recent call last):
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/scripts/../optimization/run.py", line 68, in <module>
-    sim_time, n_parameters = protocol.run()
-                             ^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 565, in run
-    min_index, min_energy = self.post_optimize(
-                            ^^^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 540, in post_optimize
-    min_index, min_energy = self.post_optimization(
-                            ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 253, in post_optimization
-    gs.run_checkpointed(
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/_src/driver1/abstract_variational_driver.py", line 217, in run_checkpointed
-    self._save_checkpoint(chkptr, loggers, callbacks)
-  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/utils/timing.py", line 276, in timed_function
-    result = fun(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/_src/driver1/abstract_variational_driver.py", line 504, in _save_checkpoint
-    chkptr.save(
-  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/checkpoint_manager.py", line 1233, in save
-    self._checkpointer.save(save_directory, args=args)
-  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/_src/checkpointers/async_checkpointer.py", line 428, in save
-    asyncio_utils.run_sync(self._save(directory, *args, force=force, **kwargs))
-  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/_src/asyncio_utils.py", line 50, in run_sync
-    return asyncio.run(coro)
-           ^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/iqu/uvm91ap/.local/share/uv/python/cpython-3.12.7-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 194, in run
-    return runner.run(main)
-           ^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/iqu/uvm91ap/.local/share/uv/python/cpython-3.12.7-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 118, in run
-    return self._loop.run_until_complete(task)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/iqu/uvm91ap/.local/share/uv/python/cpython-3.12.7-linux-x86_64-gnu/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
-    return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/orbax/checkpoint/_src/checkpointers/async_checkpointer.py", line 352, in _save
-    raise ValueError(f'Destination {directory} already exists.')
-ValueError: Destination /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/04_12_24/L10_4,5x5/1/post/checkpoint/13 already exists.
-srun: error: jean-zay-iam25: task 0: Exited with exit code 1
-srun: Terminating StepId=1268387.0

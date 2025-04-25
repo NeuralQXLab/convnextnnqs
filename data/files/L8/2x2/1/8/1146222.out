@@ -1,179 +1,0 @@
-Job running on nodes: jean-zay-iam48
-Resolved 59 packages in 7ms
-Configuring sharding...
-Number of distributed processes = 1
-Number of total devices: 8
-0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
-0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
-0/1 : hostname:  jean-zay-iam48
-args_setup: Namespace(config='/lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/03_12_24/L8_2x2_symmramp/8/config.yaml', system='Shastry_Sutherland', network='ConvNext')
-args: Namespace(config=None, system=None, network=None, L=8, J=[0.8, 1.0], n_blocks=[8], features=[72], expansion_factor=2, net_type='Vanilla', kernel_width=2, downsample_factor=2, init_kernel_width=1, samples_per_rank=512, n_chains_per_rank=512, discard_fraction=0.0, iters=[2500, 2500, 2500, 2500], lr=[0.01, 0.01, 0.01, 0.01], diag_shift=[0.01, 0.01, 0.01, 0.01], diag_shift_factor=[0.0001, 0.0001, 0.0001, 0.0001], r=1e-06, save_base='', save_num=0, seed=8, time_it=0, show_progress=1, chunk_size=256, lr_factor=[0.5, 0.5, 0.5, 0.5], save_every=100, symmetries=0, symmetry_ramping=1, momentum=0.9, checkpoint=1, post_iters=50, double_precision=1)
-Double precision enabled =  True
-Using net_type=Vanilla
-Number of symmetry stages = 4
-Maximum no. of parameters = 185256, total number of samples = 4096
-Using minSR = True
-Running optimization...
-Symmetry stage 0/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-05 13:02:08.464390: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:02:08.752014: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:02:09.042101: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:02:09.249319: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-  0%|          | 0/1 [00:31<?, ?it/s, Energy=26.97-0.02j ± 0.43 [σ²=747.03]]100%|██████████| 1/1 [00:00<00:00,  2.25it/s, Energy=26.97-0.02j ± 0.43 [σ²=747.03]]100%|██████████| 1/1 [00:00<00:00,  2.25it/s, Energy=26.97-0.02j ± 0.43 [σ²=747.03]]
-Compilation time = 32s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:01<?, ?it/s, Energy=-115.034+0.004j ± 0.025 [σ²=2.501]]100%|█████████▉| 2499/2500 [00:01<00:00, 2214.15it/s, Energy=-115.034+0.004j ± 0.025 [σ²=2.501]]100%|█████████▉| 2499/2500 [00:17<00:00, 2214.15it/s, Energy=-115.034+0.004j ± 0.025 [σ²=2.501]]100%|█████████▉| 2499/2500 [00:23<00:00, 2214.15it/s, Energy=-115.034+0.004j ± 0.025 [σ²=2.501]]100%|██████████| 2500/2500 [00:01<00:00, 2159.81it/s, Energy=-115.034+0.004j ± 0.025 [σ²=2.501]]
-Optimization time = 24s
-Symmetry stage 1/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-05 13:03:15.249952: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:03:15.539634: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:03:15.832270: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:03:16.040187: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:03:17.057479: E external/xla/xla/service/slow_operation_alarm.cc:65] Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,2,2]{3,2,1,0}, u8[0]{0}) custom-call(f64[16384,72,5,5]{3,2,1,0}, f64[16384,72,4,4]{3,2,1,0}), window={size=2x2}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
-2024-12-05 13:03:20.449436: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 4.392055371s
-Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,2,2]{3,2,1,0}, u8[0]{0}) custom-call(f64[16384,72,5,5]{3,2,1,0}, f64[16384,72,4,4]{3,2,1,0}), window={size=2x2}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
-  0%|          | 0/1 [00:31<?, ?it/s, Energy=-115.261-0.022j ± 0.053 [σ²=11.338]]100%|██████████| 1/1 [00:00<00:00,  1.94it/s, Energy=-115.261-0.022j ± 0.053 [σ²=11.338]]100%|██████████| 1/1 [00:00<00:00,  1.94it/s, Energy=-115.261-0.022j ± 0.053 [σ²=11.338]]
-Compilation time = 32s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-115.102+0.001j ± 0.015 [σ²=0.941]]100%|█████████▉| 2499/2500 [00:00<00:00, 2628.24it/s, Energy=-115.102+0.001j ± 0.015 [σ²=0.941]]100%|█████████▉| 2499/2500 [00:20<00:00, 2628.24it/s, Energy=-115.102+0.001j ± 0.015 [σ²=0.941]]100%|█████████▉| 2499/2500 [00:28<00:00, 2628.24it/s, Energy=-115.102+0.001j ± 0.015 [σ²=0.941]]100%|██████████| 2500/2500 [00:00<00:00, 2554.11it/s, Energy=-115.102+0.001j ± 0.015 [σ²=0.941]]
-Optimization time = 28s
-Symmetry stage 2/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-05 13:04:28.949584: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:04:29.243273: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:04:29.539109: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:04:29.748525: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:04:30.778533: E external/xla/xla/service/slow_operation_alarm.cc:65] Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,2,2]{3,2,1,0}, u8[0]{0}) custom-call(f64[32768,72,5,5]{3,2,1,0}, f64[32768,72,4,4]{3,2,1,0}), window={size=2x2}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
-2024-12-05 13:04:39.464000: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 9.685539353s
-Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,2,2]{3,2,1,0}, u8[0]{0}) custom-call(f64[32768,72,5,5]{3,2,1,0}, f64[32768,72,4,4]{3,2,1,0}), window={size=2x2}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
-  0%|          | 0/1 [00:39<?, ?it/s, Energy=-115.045-0.004j ± 0.058 [σ²=13.772]]100%|██████████| 1/1 [00:00<00:00,  2.07it/s, Energy=-115.045-0.004j ± 0.058 [σ²=13.772]]100%|██████████| 1/1 [00:00<00:00,  2.07it/s, Energy=-115.045-0.004j ± 0.058 [σ²=13.772]]
-Compilation time = 41s
-Running optimization...
-restoring checkpoint #2500
-  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:01<?, ?it/s, Energy=-115.152+0.001j ± 0.010 [σ²=0.434]]100%|█████████▉| 2499/2500 [00:01<00:00, 2481.43it/s, Energy=-115.152+0.001j ± 0.010 [σ²=0.434]]100%|█████████▉| 2499/2500 [00:11<00:00, 2481.43it/s, Energy=-115.152+0.001j ± 0.010 [σ²=0.434]]100%|█████████▉| 2499/2500 [00:31<00:00, 2481.43it/s, Energy=-115.152+0.001j ± 0.010 [σ²=0.434]]100%|██████████| 2500/2500 [00:01<00:00, 2417.65it/s, Energy=-115.152+0.001j ± 0.010 [σ²=0.434]]
-Optimization time = 31s
-Symmetry stage 3/3 on process 0:
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:51<?, ?it/s, Energy=-115.114-0.008j ± 0.041 [σ²=6.720]]100%|██████████| 1/1 [00:00<00:00,  2.00it/s, Energy=-115.114-0.008j ± 0.041 [σ²=6.720]]100%|██████████| 1/1 [00:00<00:00,  2.00it/s, Energy=-115.114-0.008j ± 0.041 [σ²=6.720]]
-Compilation time = 52s
-Running optimization...
-  0%|          | 0/2500 [00:00<?, ?it/s]2024-12-05 13:07:17.466693: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.467309: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.467376  170619 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.468072: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.468787: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.468863  170625 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.469130: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.469774: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.469846  170631 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.470716: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.471223: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.471279  170622 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.471956: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.472647: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.472725  170613 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.473375: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.474011: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.474097  170616 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.474699: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.475284: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.475341  170628 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-2024-12-05 13:07:17.475894: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 80.30GiB (rounded to 86227146240)requested by op 
-2024-12-05 13:07:17.476522: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:07:17.476611  170634 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 86227146240 bytes.
-  0%|          | 0/2500 [00:53<?, ?it/s]
-Out of memory, reducing chunk_size to 128 and retrying
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-05 13:07:45.838644: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:07:46.004087: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-  0%|          | 0/1 [00:48<?, ?it/s, Energy=-115.114-0.008j ± 0.041 [σ²=6.720]]100%|██████████| 1/1 [00:00<00:00,  2.01it/s, Energy=-115.114-0.008j ± 0.041 [σ²=6.720]]100%|██████████| 1/1 [00:00<00:00,  2.01it/s, Energy=-115.114-0.008j ± 0.041 [σ²=6.720]]
-Compilation time = 49s
-Running optimization...
-  0%|          | 0/2500 [00:00<?, ?it/s]2024-12-05 13:08:57.781747: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.782555: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.782641  170619 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.783102: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.783814: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.783873  170628 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.784336: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.784887: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.784945  170616 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.785567: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.786421: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.786510  170613 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.786675: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.787537: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.787591  170625 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.788194: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.788741: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.788794  170631 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.789468: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.790324: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.790400  170622 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-2024-12-05 13:08:57.790837: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 83.51GiB (rounded to 89670471680)requested by op 
-2024-12-05 13:08:57.791612: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] *___________________________________________________________________________________________________
-E1205 13:08:57.791716  170634 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 89670471680 bytes.
-  0%|          | 0/2500 [00:51<?, ?it/s]
-Out of memory, reducing chunk_size to 64 and retrying
-Compiling...
-  0%|          | 0/1 [00:00<?, ?it/s]2024-12-05 13:09:35.596271: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:09:35.749630: E external/xla/xla/stream_executor/cuda/cuda_timer.cc:86] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
-2024-12-05 13:10:07.376500: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.376601: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.376677: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.376750: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.376831: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.376903: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.377291: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-2024-12-05 13:10:07.377359: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-2024-12-05 13:10:07.377410: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-2024-12-05 13:10:07.377479: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-2024-12-05 13:10:07.377559: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-2024-12-05 13:10:07.377665: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-2024-12-05 13:10:07.378005: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-E1205 13:10:07.378432  170619 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-E1205 13:10:07.378458  170625 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-E1205 13:10:07.378517  170634 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-E1205 13:10:07.378609  170616 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-E1205 13:10:07.378624  170628 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-E1205 13:10:07.378699  170622 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-2024-12-05 13:10:07.378712: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-E1205 13:10:07.378901  170613 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-2024-12-05 13:10:07.378936: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
-2024-12-05 13:10:07.379656: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] **************************************************************************************************__
-E1205 13:10:07.379850  170631 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
-  0%|          | 0/1 [01:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 477, in optimize
-    driver.run(
-  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/driver/abstract_variational_driver.py", line 347, in run
-    for step in self.iter(n_iter, step_size):
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/netket_checkpoint/_src/driver1/abstract_variational_driver.py", line 69, in iter
-    dp = self._forward_and_backward()
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/netket_pro/_src/driver/vmc_srt_ntk.py", line 371, in _forward_and_backward
-    updates, self._cplx_split_updates, _ = SRt_ntk(
-                                           ^^^^^^^^
-jaxlib.xla_extension.XlaRuntimeError: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd: while running replica 0 and partition 0 of a replicated computation (other replicas may have failed as well).
---------------------
-For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/scripts/../optimization/run.py", line 67, in <module>
-    sim_time, n_parameters = protocol.run()
-                             ^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 556, in run
-    sim_time, final_lr, final_diag_shift = self.optimize()
-                                           ^^^^^^^^^^^^^^^
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 517, in optimize
-    raise RuntimeError(
-RuntimeError: Whilst reducing chunk_size to not run out of memory, chunk_size <= 32, aborting simulation
-srun: error: jean-zay-iam48: task 0: Exited with exit code 1
-srun: Terminating StepId=1146222.0

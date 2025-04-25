@@ -1,8 +1,0 @@
-Job running on nodes: jean-zay-iam14
-Resolved 20 packages in 3ms
-Traceback (most recent call last):
-  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/scripts/../optimization/run.py", line 3, in <module>
-srun: error: jean-zay-iam14: task 0: Exited with exit code 1
-    import deepnets.config.processes
-srun: Terminating StepId=454873.0
-ModuleNotFoundError: No module named 'deepnets'
