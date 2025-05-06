@@ -1,4 +1,8 @@
+# ConvNext Neural Quantum States and lattice simmetries
+
 Repository accompanying the article [Design principles of deep translationally-symmetric neural quantum states for frustrated magnets](link)
+
+## Content
 
 The repository is structured as follows:
 - [data](data): Contains the data from simulations (in [data/files](data/files)) along with notebooks producing plots for the paper, and computing flops of a network.
@@ -10,7 +14,7 @@ Since the data takes up some space, it is not included on the default `main` bra
     - `optimization.py` a sample optimization script we used for our runs, using a custom training protocol class.
 - [scripts](scripts): Contains scripts for running VMC optimization of the ConvNext and computing expectation values from the optimized wavefunction
 
-# Installation
+## Installation
 A simple way to get up and running is to use [uv](https://docs.astral.sh/uv/getting-started/installation/).
 To set up an environment and run once you have `uv` installed you just need to run `uv sync`, which will install the exact same versions of python packages that we used.
 If you wish to use more recent software, you can run `uv sync --upgrade`, but incompatibilities might arise.
@@ -23,5 +27,5 @@ Those commands will work as long as you are inside the root folder of this repos
 
 You can also install directly the package used for our research called 'deepnets' by running `uv add {/path/to/connextnnqx/deepnets}` or `pip add {/path/to/connextnnqx/deepnets}`.
 
-# Further Information
+## Further Information
 For further questions about what is in the repository, contact rajah.nutakki@polytechnique.edu.
