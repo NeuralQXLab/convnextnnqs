@@ -1,0 +1,21 @@
+[project]
+name = "convnextnnqs"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "configargparse>=1.7",
+    "deepnets",
+    "einops>=0.8.1",
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.10.1",
+    "netket==3.17",
+    "seaborn>=0.13.2",
+]
+
+[tool.uv.sources]
+deepnets = { path = "deepnets", editable = true }
+
+[dependency-groups]
+cuda = [
+    "jax[cuda]==0.4.38",
+]
