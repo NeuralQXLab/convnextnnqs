@@ -1,0 +1,177 @@
+Job running on nodes: jean-zay-iam48
+Resolved 60 packages in 61ms
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 8
+0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : hostname:  jean-zay-iam48
+args_setup: Namespace(config='/lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/04_12_24/L10_4,5x5/0/config.yaml', system='Shastry_Sutherland', network='ConvNext')
+args: Namespace(config=None, system=None, network=None, L=10, J=[0.8, 1.0], n_blocks=[4], features=[72], expansion_factor=2, net_type='Vanilla', kernel_width=5, downsample_factor=2, init_kernel_width=1, samples_per_rank=512, n_chains_per_rank=512, discard_fraction=0.0, iters=[2500, 2500, 2500, 2500], lr=[0.01, 0.01, 0.01, 0.01], diag_shift=[0.05, 0.05, 0.05, 0.05], diag_shift_factor=[0.0001, 0.0001, 0.0001, 0.0001], r=1e-06, save_base='', save_num=0, seed=10, time_it=0, show_progress=1, chunk_size=512, lr_factor=[0.5, 0.5, 0.5, 0.5], save_every=100, symmetries=0, symmetry_ramping=1, momentum=0.9, checkpoint=1, post_iters=50, sweep_factor=1, double_precision=1)
+Double precision enabled =  True
+Using net_type=Vanilla
+Number of symmetry stages = 4
+Maximum no. of parameters = 104328, total number of samples = 4096
+Using minSR = True
+Running optimization...
+Symmetry stage 0/3 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2024-12-09 14:47:23.558167: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [00:28<?, ?it/s, Energy=94.38-0.61j ± 0.66 [σ²=1759.18]]100%|██████████| 1/1 [00:00<00:00,  3.57it/s, Energy=94.38-0.61j ± 0.66 [σ²=1759.18]]100%|██████████| 1/1 [00:00<00:00,  3.56it/s, Energy=94.38-0.61j ± 0.66 [σ²=1759.18]]
+Compilation time = 29s
+Running optimization...
+restoring checkpoint #2500
+  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-178.212+0.000j ± 0.062 [σ²=15.742]]100%|█████████▉| 2499/2500 [00:00<00:00, 3117.99it/s, Energy=-178.212+0.000j ± 0.062 [σ²=15.742]]2024-12-09 14:47:43.063072: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 2499/2500 [00:13<00:00, 3117.99it/s, Energy=-178.212+0.000j ± 0.062 [σ²=15.742]]100%|██████████| 2500/2500 [00:00<00:00, 3060.28it/s, Energy=-178.212+0.000j ± 0.062 [σ²=15.742]]
+Optimization time = 13s
+Symmetry stage 1/3 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2024-12-09 14:48:12.268519: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [00:24<?, ?it/s, Energy=-178.21-0.06j ± 0.20 [σ²=163.63]]100%|██████████| 1/1 [00:00<00:00,  3.40it/s, Energy=-178.21-0.06j ± 0.20 [σ²=163.63]]100%|██████████| 1/1 [00:00<00:00,  3.40it/s, Energy=-178.21-0.06j ± 0.20 [σ²=163.63]]
+Compilation time = 24s
+Running optimization...
+restoring checkpoint #2500
+  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-178.941-0.006j ± 0.045 [σ²=8.242]]100%|█████████▉| 2499/2500 [00:00<00:00, 3864.03it/s, Energy=-178.941-0.006j ± 0.045 [σ²=8.242]]2024-12-09 14:48:31.433197: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 2499/2500 [00:16<00:00, 3864.03it/s, Energy=-178.941-0.006j ± 0.045 [σ²=8.242]]100%|█████████▉| 2499/2500 [00:19<00:00, 3864.03it/s, Energy=-178.941-0.006j ± 0.045 [σ²=8.242]]100%|██████████| 2500/2500 [00:00<00:00, 3773.71it/s, Energy=-178.941-0.006j ± 0.045 [σ²=8.242]]
+Optimization time = 20s
+Symmetry stage 2/3 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2024-12-09 14:49:07.130849: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [00:28<?, ?it/s, Energy=-178.93-0.11j ± 0.15 [σ²=87.99]]100%|██████████| 1/1 [00:00<00:00,  3.14it/s, Energy=-178.93-0.11j ± 0.15 [σ²=87.99]]100%|██████████| 1/1 [00:00<00:00,  3.14it/s, Energy=-178.93-0.11j ± 0.15 [σ²=87.99]]
+Compilation time = 29s
+Running optimization...
+restoring checkpoint #2500
+  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:00<?, ?it/s, Energy=-179.217-0.006j ± 0.048 [σ²=9.472]]100%|█████████▉| 2499/2500 [00:00<00:00, 3041.51it/s, Energy=-179.217-0.006j ± 0.048 [σ²=9.472]]100%|█████████▉| 2499/2500 [00:11<00:00, 3041.51it/s, Energy=-179.217-0.006j ± 0.048 [σ²=9.472]]2024-12-09 14:49:30.848541: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 2499/2500 [00:24<00:00, 3041.51it/s, Energy=-179.217-0.006j ± 0.048 [σ²=9.472]]100%|██████████| 2500/2500 [00:00<00:00, 2975.71it/s, Energy=-179.217-0.006j ± 0.048 [σ²=9.472]]
+Optimization time = 25s
+Symmetry stage 3/3 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2024-12-09 14:50:21.571573: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [00:47<?, ?it/s, Energy=-179.70+0.07j ± 0.14 [σ²=85.44]]100%|██████████| 1/1 [00:00<00:00,  3.37it/s, Energy=-179.70+0.07j ± 0.14 [σ²=85.44]]100%|██████████| 1/1 [00:00<00:00,  3.36it/s, Energy=-179.70+0.07j ± 0.14 [σ²=85.44]]
+Compilation time = 48s
+Running optimization...
+  0%|          | 0/2500 [00:00<?, ?it/s]2024-12-09 14:50:58.563283: W external/xla/xla/hlo/transforms/simplifiers/hlo_rematerialization.cc:3020] Can't reduce memory use below 56.38GiB (60540585278 bytes) by rematerialization; only reduced to 58.33GiB (62637641460 bytes), down from 63.31GiB (67975466292 bytes) originally
+2024-12-09 14:51:01.649182: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+2024-12-09 14:51:23.266731: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.266822: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.266879: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.266948: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.267036: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.267111: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.267229: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.267295: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:23.267330: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-12-09 14:51:23.267400: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:23.267434: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:23.267478: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:23.267493 1082545 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+2024-12-09 14:51:23.267520: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:23.267635 1082539 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+2024-12-09 14:51:23.267678: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:23.267715: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:23.267727 1082536 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+2024-12-09 14:51:23.267861: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:23.267891 1082533 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1209 14:51:23.268067 1082548 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1209 14:51:23.268083 1082530 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1209 14:51:23.268216 1082527 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1209 14:51:23.268243 1082542 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+  0%|          | 0/2500 [00:48<?, ?it/s]
+Out of memory, reducing chunk_size to 256 and retrying
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2024-12-09 14:51:33.991833: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.991925: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.991995: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.992059: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.992135: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.992254: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.992347: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.992411: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:33.992456 1082545 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+2024-12-09 14:51:33.992445: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 6.70GiB (rounded to 7191145216)requested by op 
+2024-12-09 14:51:33.992531: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:33.992564: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:33.992577 1082539 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+2024-12-09 14:51:33.992597: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:33.992630: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:33.992613 1082536 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+E1209 14:51:33.992647 1082530 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+E1209 14:51:33.992676 1082533 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+2024-12-09 14:51:33.992783: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+2024-12-09 14:51:33.992812: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:33.992834 1082527 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+E1209 14:51:33.992858 1082548 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+2024-12-09 14:51:33.992928: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ****************************************************************************************************
+E1209 14:51:33.992975 1082542 pjrt_stream_executor_client.cc:3086] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.
+  0%|          | 0/1 [00:10<?, ?it/s]
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/scripts/../optimization/run.py", line 68, in <module>
+    sim_time, n_parameters = protocol.run()
+                             ^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 563, in run
+    sim_time, final_lr, final_diag_shift = self.optimize()
+                                           ^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/optimization/protocols.py", line 484, in optimize
+    driver.run(
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/driver/abstract_variational_driver.py", line 347, in run
+    for step in self.iter(n_iter, step_size):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_checkpoint/_src/driver1/abstract_variational_driver.py", line 70, in iter
+    dp = self._forward_and_backward()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_pro/_src/driver/vmc_srt_ntk.py", line 376, in _forward_and_backward
+    local_energies = self.state.local_estimators(self._ham)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/utils/timing.py", line 276, in timed_function
+    result = fun(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/vqs/mc/mc_state/state.py", line 614, in local_estimators
+    return local_estimators(self, op, chunk_size=chunk_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/vqs/mc/mc_state/state.py", line 782, in local_estimators
+    s, extra_args = get_local_kernel_arguments(state, op)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/plum/function.py", line 383, in __call__
+    return _convert(method(*args, **kw_args), return_type)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/vqs/mc/mc_state/expect.py", line 75, in get_local_kernel_arguments
+    σ = vstate.samples
+        ^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_pro/_src/monkeypatch/mcstate_sampling.py", line 341, in samples
+    return self.samples_distribution()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_pro/_src/monkeypatch/mcstate_sampling.py", line 274, in samples_distribution
+    self.sample_distribution(
+  File "/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/packages/netket_pro/_src/monkeypatch/mcstate_sampling.py", line 199, in sample_distribution
+    sampler_state = self.sampler.reset(distribution, variables, sampler_state)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/netket/sampler/base.py", line 265, in reset
+    return sampler._reset(wrap_afun(machine), parameters, state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 7191145000 bytes.: while running replica 0 and partition 0 of a replicated computation (other replicas may have failed as well).
+srun: error: jean-zay-iam48: task 0: Exited with exit code 1
+srun: Terminating StepId=1232284.0

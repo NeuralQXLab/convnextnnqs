@@ -1,0 +1,48 @@
+Job running on nodes: r7i4n8
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 1
+0/1 : global [CudaDevice(id=0)]
+0/1 : local [CudaDevice(id=0)]
+0/1 : hostname:  r7i4n8
+/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/expectation_value/expectation_value.py:47: UserWarning: For performance reasons, we suggest to use a power-of-two chunk size.
+  vstate.chunk_size = chunk_size
+/lustre/fswork/projects/rech/rgs/uvm91ap/repos/netket_pro_update/deepnets/expectation_value/expectation_value.py:53: UserWarning: For performance reasons, we suggest to use a power-of-two chunk size.
+  vstate.chunk_size = chunk_size
+Arguments: Namespace(directory='/lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/20_03_25/q0_head/2', net='ConvNext', n_samples_per_chain=10000, n_chains=32, n_chains_load=256, n_discard_per_chain=10000, chunk_size=1000)
+Computing expectation values...
+Using net_type= FT
+Momentum sector = (0.0, 0.0)
+FlipExpSum(
+    # attributes
+    module = SymmExpSum(
+        # attributes
+        module = ConvNext(
+            # attributes
+            lattice_shape = (10, 10)
+            n_blocks = (4,)
+            features = (72,)
+            expansion_factor = 2
+            Encoder = Encoder
+            head = FTHead(
+                # attributes
+                b = 2
+                lattice_shape = (10, 10)
+                final_features = 72
+                q = (0.0, 0.0)
+                compute_positions = positions_2d
+            )
+            kernel_size = (3, 3)
+            downsample_factor = 2
+            extract_patches = extract_patches_as2d
+        )
+        symm_group = PermutationGroup(elems=[Id(), Refl(45°)O[-1/2,1/2], Rot(90°), Glide[0,-1]O[-1/2,0], Rot(180°), Glide[1,-1], Rot(-90°), Glide[1,0]O[0,1/2]], degree=100)
+        character_id = None
+    )
+)
+vstate.chunk_size = 1000
+vstate.n_chains = 256
+vstates.n_samples = 320000
+vstate.n_discard_per_chain = 10000
+Finished computing expectation values
+Time taken 23302.5s

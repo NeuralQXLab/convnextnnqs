@@ -1,0 +1,139 @@
+Job running on nodes: jean-zay-iam04
+Resolved 61 packages in 77ms
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 8
+0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : hostname:  jean-zay-iam04
+args_setup: Namespace(config='/lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/config.yaml', system='Square_Heisenberg', network='ConvNext')
+args: Namespace(config=None, system=None, network=None, L=10, J=[1.0, 0.5], sign_rule=[0, 0], patching=1, n_blocks=[6], features=[72], expansion_factor=3, net_type='Vanilla', kernel_width=3, downsample_factor=2, final_features=144, init_kernel_width=1, output_depth=2, samples_per_rank=512, n_chains_per_rank=512, discard_fraction=0.0, iters=[2500, 2500, 1000, 200, 100], lr=[0.01, 0.01, 0.01, 0.01, 0.01], diag_shift=[0.01, 0.01, 0.01, 0.01, 0.01], diag_shift_factor=[0.0001, 0.0001, 0.0001, 0.0001, 0.0001], r=1e-06, save_base='', save_num=0, seed=6447, time_it=0, show_progress=1, chunk_size=128, lr_factor=[0.5, 0.5, 0.5, 0.5, 0.5], save_every=100, symmetries=0, symmetry_ramping=1, momentum=0.9, checkpoint=1, post_iters=50, sweep_factor=4, double_precision=1)
+Double precision enabled =  True
+Using net_type=Vanilla
+Number of symmetry stages = 5
+Maximum no. of parameters = 260568, total number of samples = 4096
+Using minSR = True
+Running optimization...
+Symmetry stage 0/4 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2025-02-14 05:24:24.716780: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [00:39<?, ?it/s, Energy=58.87-0.67j ± 0.78 [σ²=2505.72]]100%|██████████| 1/1 [00:00<00:00,  2.60it/s, Energy=58.87-0.67j ± 0.78 [σ²=2505.72]]100%|██████████| 1/1 [00:00<00:00,  2.59it/s, Energy=58.87-0.67j ± 0.78 [σ²=2505.72]]
+Compilation time = 41s
+Running optimization...
+restoring checkpoint #2500
+  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:04<?, ?it/s, Energy=-198.663-0.006j ± 0.036 [σ²=5.353]]100%|█████████▉| 2499/2500 [00:04<00:00, 597.70it/s, Energy=-198.663-0.006j ± 0.036 [σ²=5.353]]100%|█████████▉| 2499/2500 [00:19<00:00, 597.70it/s, Energy=-198.663-0.006j ± 0.036 [σ²=5.353]]2025-02-14 05:25:03.971835: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 2499/2500 [00:32<00:00, 597.70it/s, Energy=-198.663-0.006j ± 0.036 [σ²=5.353]]100%|██████████| 2500/2500 [00:04<00:00, 594.57it/s, Energy=-198.663-0.006j ± 0.036 [σ²=5.353]]
+Optimization time = 33s
+Symmetry stage 1/4 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2025-02-14 05:26:04.082006: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [00:53<?, ?it/s, Energy=-198.787-0.001j ± 0.038 [σ²=6.055]]100%|██████████| 1/1 [00:00<00:00,  2.37it/s, Energy=-198.787-0.001j ± 0.038 [σ²=6.055]]100%|██████████| 1/1 [00:00<00:00,  2.37it/s, Energy=-198.787-0.001j ± 0.038 [σ²=6.055]]
+Compilation time = 54s
+Running optimization...
+restoring checkpoint #2500
+  0%|          | 0/2500 [00:00<?, ?it/s]  0%|          | 0/2500 [00:01<?, ?it/s, Energy=-198.880+0.005j ± 0.025 [σ²=2.590]]100%|█████████▉| 2499/2500 [00:01<00:00, 1792.56it/s, Energy=-198.880+0.005j ± 0.025 [σ²=2.590]]100%|█████████▉| 2499/2500 [00:13<00:00, 1792.56it/s, Energy=-198.880+0.005j ± 0.025 [σ²=2.590]]2025-02-14 05:26:57.128016: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 2499/2500 [00:53<00:00, 1792.56it/s, Energy=-198.880+0.005j ± 0.025 [σ²=2.590]]100%|██████████| 2500/2500 [00:01<00:00, 1758.62it/s, Energy=-198.880+0.005j ± 0.025 [σ²=2.590]]
+Optimization time = 54s
+Symmetry stage 2/4 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2025-02-14 05:29:06.980869: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [02:06<?, ?it/s, Energy=-198.908+0.002j ± 0.019 [σ²=1.518]]100%|██████████| 1/1 [00:00<00:00,  2.15it/s, Energy=-198.908+0.002j ± 0.019 [σ²=1.518]]100%|██████████| 1/1 [00:00<00:00,  2.15it/s, Energy=-198.908+0.002j ± 0.019 [σ²=1.518]]
+Compilation time = 127s
+Running optimization...
+restoring checkpoint #1000
+  0%|          | 0/1000 [00:00<?, ?it/s]  0%|          | 0/1000 [00:01<?, ?it/s, Energy=-199.007-0.004j ± 0.033 [σ²=4.408]]100%|█████████▉| 999/1000 [00:01<00:00, 820.02it/s, Energy=-199.007-0.004j ± 0.033 [σ²=4.408]]100%|█████████▉| 999/1000 [00:14<00:00, 820.02it/s, Energy=-199.007-0.004j ± 0.033 [σ²=4.408]]2025-02-14 05:31:11.772689: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 999/1000 [02:05<00:00, 820.02it/s, Energy=-199.007-0.004j ± 0.033 [σ²=4.408]]100%|██████████| 1000/1000 [00:01<00:00, 803.09it/s, Energy=-199.007-0.004j ± 0.033 [σ²=4.408]]
+Optimization time = 126s
+Symmetry stage 3/4 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2025-02-14 05:34:47.477616: E external/xla/xla/service/slow_operation_alarm.cc:73] Trying algorithm eng20{k2=6,k3=0} for conv %cudnn-conv-bw-filter.30 = (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[4096,72,7,7]{3,2,1,0} %bitcast.54803, f64[4096,72,5,5]{3,2,1,0} %bitcast.55800), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", metadata={op_name="jit(SRt_ntk)/jit(main)/jit(shmap_body)/while/body/transpose(jvp(SymmExpSum))/module/encoder/stages_0/layers_0/Conv_0/conv_general_dilated" source_file="/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/flax/linen/linear.py" source_line=658}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"cudnn_conv_backend_config":{"conv_result_scale":1,"activation_mode":"kNone","side_input_scale":0,"leakyrelu_alpha":0},"force_earliest_schedule":false} is taking a while...
+2025-02-14 05:34:47.942783: E external/xla/xla/service/slow_operation_alarm.cc:140] The operation took 1.465241422s
+Trying algorithm eng20{k2=6,k3=0} for conv %cudnn-conv-bw-filter.30 = (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[4096,72,7,7]{3,2,1,0} %bitcast.54803, f64[4096,72,5,5]{3,2,1,0} %bitcast.55800), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", metadata={op_name="jit(SRt_ntk)/jit(main)/jit(shmap_body)/while/body/transpose(jvp(SymmExpSum))/module/encoder/stages_0/layers_0/Conv_0/conv_general_dilated" source_file="/lustre/fsn1/projects/rech/rgs/uvm91ap/uv_envs/nk_pro_update/.venv/lib/python3.12/site-packages/flax/linen/linear.py" source_line=658}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"cudnn_conv_backend_config":{"conv_result_scale":1,"activation_mode":"kNone","side_input_scale":0,"leakyrelu_alpha":0},"force_earliest_schedule":false} is taking a while...
+2025-02-14 05:34:52.217950: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [03:36<?, ?it/s, Energy=-199.006+0.001j ± 0.019 [σ²=1.422]]100%|██████████| 1/1 [00:00<00:00,  2.11it/s, Energy=-199.006+0.001j ± 0.019 [σ²=1.422]]100%|██████████| 1/1 [00:00<00:00,  2.11it/s, Energy=-199.006+0.001j ± 0.019 [σ²=1.422]]
+Compilation time = 217s
+Running optimization...
+restoring checkpoint #200
+  0%|          | 0/200 [00:00<?, ?it/s]  0%|          | 0/200 [00:01<?, ?it/s, Energy=-199.046+0.003j ± 0.014 [σ²=0.763]]100%|█████████▉| 199/200 [00:01<00:00, 158.56it/s, Energy=-199.046+0.003j ± 0.014 [σ²=0.763]]100%|█████████▉| 199/200 [00:12<00:00, 158.56it/s, Energy=-199.046+0.003j ± 0.014 [σ²=0.763]]2025-02-14 05:38:26.401998: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+100%|█████████▉| 199/200 [03:34<00:00, 158.56it/s, Energy=-199.046+0.003j ± 0.014 [σ²=0.763]]100%|██████████| 200/200 [00:01<00:00, 156.12it/s, Energy=-199.046+0.003j ± 0.014 [σ²=0.763]]
+Optimization time = 215s
+Symmetry stage 4/4 on process 0:
+Compiling...
+  0%|          | 0/1 [00:00<?, ?it/s]2025-02-14 05:45:16.390275: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/1 [06:58<?, ?it/s, Energy=-199.040+0.001j ± 0.017 [σ²=1.212]]100%|██████████| 1/1 [00:00<00:00,  2.33it/s, Energy=-199.040+0.001j ± 0.017 [σ²=1.212]]100%|██████████| 1/1 [00:00<00:00,  2.33it/s, Energy=-199.040+0.001j ± 0.017 [σ²=1.212]]
+Compilation time = 419s
+Running optimization...
+restoring checkpoint #100
+  0%|          | 0/100 [00:00<?, ?it/s]  0%|          | 0/100 [00:01<?, ?it/s, Energy=-199.065-0.002j ± 0.020 [σ²=1.606]] 99%|█████████▉| 99/100 [00:01<00:00, 79.70it/s, Energy=-199.065-0.002j ± 0.020 [σ²=1.606]] 99%|█████████▉| 99/100 [00:18<00:00, 79.70it/s, Energy=-199.065-0.002j ± 0.020 [σ²=1.606]]2025-02-14 05:52:16.297521: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+ 99%|█████████▉| 99/100 [07:01<00:00, 79.70it/s, Energy=-199.065-0.002j ± 0.020 [σ²=1.606]]100%|██████████| 100/100 [00:01<00:00, 78.76it/s, Energy=-199.065-0.002j ± 0.020 [σ²=1.606]]
+Optimization time = 422s
+Finished optimization
+Performing 50 additional optimization steps...
+Sampling parameters:
+n_chains = 256
+n_samples = 4096
+n_discard_per_chain = 128
+restoring checkpoint #41
+  0%|          | 0/50 [00:00<?, ?it/s]2025-02-14 06:06:06.667343: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+  0%|          | 0/50 [13:45<?, ?it/s, Energy=-199.023-0.002j ± 0.022 [σ²=2.102, R̂=1.0317]] 82%|████████▏ | 41/50 [13:45<03:01, 20.13s/it, Energy=-199.023-0.002j ± 0.022 [σ²=2.102, R̂=1.0317]]2025-02-14 06:19:40.989259: W external/xla/xla/service/gpu/ir_emitter_unnested.cc:1171] Unable to parse backend config for custom call: Could not convert JSON string to proto: Expected : between key:value pair.
+= 0 : ui8, lower = t
+^
+Fall back to parse the raw backend config str.
+ 82%|████████▏ | 41/50 [27:22<03:01, 20.13s/it, Energy=-199.023-0.002j ± 0.022 [σ²=2.102, R̂=1.0317]] 82%|████████▏ | 41/50 [26:39<03:01, 20.13s/it, Energy=-198.987+0.012j ± 0.037 [σ²=6.273, R̂=1.0247]] 84%|████████▍ | 42/50 [26:39<06:04, 45.53s/it, Energy=-198.987+0.012j ± 0.037 [σ²=6.273, R̂=1.0247]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/42.orbax-checkpoint-tmp-0/loggers.orbax-checkpoint-tmp-3, 
+ 84%|████████▍ | 42/50 [39:35<06:04, 45.53s/it, Energy=-199.014-0.009j ± 0.021 [σ²=2.181, R̂=1.0199]] 86%|████████▌ | 43/50 [39:35<09:13, 79.02s/it, Energy=-199.014-0.009j ± 0.021 [σ²=2.181, R̂=1.0199]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/43.orbax-checkpoint-tmp-5/loggers.orbax-checkpoint-tmp-8, 
+ 86%|████████▌ | 43/50 [52:30<09:13, 79.02s/it, Energy=-198.992-0.004j ± 0.038 [σ²=5.894, R̂=1.0318]] 88%|████████▊ | 44/50 [52:30<12:11, 121.84s/it, Energy=-198.992-0.004j ± 0.038 [σ²=5.894, R̂=1.0318]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/44.orbax-checkpoint-tmp-10/loggers.orbax-checkpoint-tmp-13, 
+ 88%|████████▊ | 44/50 [1:05:26<12:11, 121.84s/it, Energy=-199.033-0.000j ± 0.016 [σ²=1.042, R̂=1.0274]] 90%|█████████ | 45/50 [1:05:26<14:33, 174.69s/it, Energy=-199.033-0.000j ± 0.016 [σ²=1.042, R̂=1.0274]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/45.orbax-checkpoint-tmp-15/loggers.orbax-checkpoint-tmp-18, 
+ 90%|█████████ | 45/50 [1:18:22<14:33, 174.69s/it, Energy=-198.996-0.006j ± 0.017 [σ²=1.095, R̂=1.0320]] 92%|█████████▏| 46/50 [1:18:22<15:47, 236.92s/it, Energy=-198.996-0.006j ± 0.017 [σ²=1.095, R̂=1.0320]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/46.orbax-checkpoint-tmp-20/loggers.orbax-checkpoint-tmp-23, 
+ 92%|█████████▏| 46/50 [1:31:17<15:47, 236.92s/it, Energy=-199.021-0.001j ± 0.018 [σ²=1.222, R̂=1.0326]] 94%|█████████▍| 47/50 [1:31:17<15:18, 306.32s/it, Energy=-199.021-0.001j ± 0.018 [σ²=1.222, R̂=1.0326]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/47.orbax-checkpoint-tmp-25/loggers.orbax-checkpoint-tmp-28, 
+ 94%|█████████▍| 47/50 [1:44:13<15:18, 306.32s/it, Energy=-199.006+0.002j ± 0.017 [σ²=1.061, R̂=1.0349]] 96%|█████████▌| 48/50 [1:44:13<12:38, 379.20s/it, Energy=-199.006+0.002j ± 0.017 [σ²=1.061, R̂=1.0349]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/48.orbax-checkpoint-tmp-30/loggers.orbax-checkpoint-tmp-33, 
+ 96%|█████████▌| 48/50 [1:57:09<12:38, 379.20s/it, Energy=-199.013+0.004j ± 0.020 [σ²=1.624, R̂=1.0327]] 98%|█████████▊| 49/50 [1:57:09<07:31, 451.26s/it, Energy=-199.013+0.004j ± 0.020 [σ²=1.624, R̂=1.0327]]WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/49.orbax-checkpoint-tmp-35/loggers.orbax-checkpoint-tmp-38, 
+WARNING:absl:[process=0][thread=async_save] Skipping merge of OCDBT checkpoints: No per-process OCDBT checkpoint subdirs found in /lustre/fswork/projects/rech/rgs/uvm91ap/projects/deepNQS/ConvNext/30_01_25/J1J2_L10_benchmark_run/1/post/checkpoint/50.orbax-checkpoint-tmp-40/loggers.orbax-checkpoint-tmp-43, 
+100%|██████████| 50/50 [1:57:10<00:00, 140.60s/it, Energy=-199.013+0.004j ± 0.020 [σ²=1.624, R̂=1.0327]]
+Final 50 energies = [-199.04289558 -199.03926404 -199.04062853 -199.013227   -199.00902839
+ -199.00164942 -198.98114759 -199.03776325 -198.99288081 -199.04146966
+ -199.070042   -199.02009453 -199.0334758  -199.01608229 -199.00555485
+ -199.03783065 -199.04390578 -199.05601501 -199.02876096 -199.04417768
+ -199.01236204 -199.04539789 -199.02305154 -199.00764116 -199.00079261
+ -199.01144788 -199.0425951  -199.01308547 -199.02365976 -199.01415472
+ -198.98025811 -198.96831721 -198.98183491 -199.01026986 -199.03021003
+ -199.02732882 -198.98139934 -198.9861203  -199.02183791 -199.02011725
+ -199.00522211 -199.02271731 -198.98736731 -199.01401237 -198.99165468
+ -199.03340007 -198.99612869 -199.02146128 -199.00562476 -199.01327998]
+min_index=10
+Finished additional optimization steps
+Post-processing time = 7850s
+Saving simulation results to opt.log
+Finished on process 0

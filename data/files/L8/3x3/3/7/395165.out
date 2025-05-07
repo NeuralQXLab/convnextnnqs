@@ -1,0 +1,131 @@
+Job running on nodes: jean-zay-iam01
+recursion  started at Mon Oct 28 10:02:22 PM CET 2024
+python -u -O /lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/deepnets/optimization/run.py --L=8 --J 0.8 1.0 --n_blocks 8 --features 72 --expansion_factor=2 --downsample_factor=2 --kernel_width=3 --output_head=Vanilla --samples_per_rank=512 --chains_per_rank=512 --discard_fraction=0.0 --iters 2500 2500 2500 2500 --lr 0.01 0.01 0.01 0.01 --alpha 0.5 0.5 0.5 0.5 --diag_shift 0.01 0.01 0.01 0.01 --diag_shift_end 0.0001 0.0001 0.0001 0.0001 --r=1e-06 --chunk_size=512 --save_every=100 --symmetries=0 --symmetry_ramping=1 --momentum=0.9 --post_iters=50 --double_precision=1 --time_it=0 --show_progress=0 --checkpoint=1 --seed=296  --save_base /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/17_10_24/L=8/symm_ramp_3x3/7/ >> /gpfswork/rech/iqu/uvm91ap/projects/deepNQS/ConvNext/17_10_24/L=8/symm_ramp_3x3/7/${SLURM_JOB_ID}.out &
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 8
+0/1 : global [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : local [CudaDevice(id=0), CudaDevice(id=1), CudaDevice(id=2), CudaDevice(id=3), CudaDevice(id=4), CudaDevice(id=5), CudaDevice(id=6), CudaDevice(id=7)]
+0/1 : hostname:  jean-zay-iam01
+Double precision enabled =  True
+chunk_size = 512
+Running optimization...
+Symmetry stage 0 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+restoring checkpoint #2500
+Symmetry stage 1 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+2024-10-28 22:04:00.488905: E external/xla/xla/service/slow_operation_alarm.cc:65] Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[16384,72,6,6]{3,2,1,0}, f64[16384,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+2024-10-28 22:04:05.283766: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 5.794947137s
+Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[16384,72,6,6]{3,2,1,0}, f64[16384,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+Symmetry stage 2 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #2500
+2024-10-28 22:04:47.707023: E external/xla/xla/service/slow_operation_alarm.cc:65] Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[32768,72,6,6]{3,2,1,0}, f64[32768,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+2024-10-28 22:04:59.539869: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 12.832918626s
+Trying algorithm eng20{k2=6,k3=0} for conv (f64[72,1,3,3]{3,2,1,0}, u8[0]{0}) custom-call(f64[32768,72,6,6]{3,2,1,0}, f64[32768,72,4,4]{3,2,1,0}), window={size=3x3}, dim_labels=bf01_oi01->bf01, feature_group_count=72, custom_call_target="__cudnn$convBackwardFilter", backend_config={"cudnn_conv_backend_config":{"activation_mode":"kNone","conv_result_scale":1,"leakyrelu_alpha":0,"side_input_scale":0},"force_earliest_schedule":false,"operation_queue_id":"0","wait_on_operation_queues":[]} is taking a while...
+Symmetry stage 3 on process 0:
+Total number of model parameters = 188136
+Using minSR
+restoring checkpoint #1000
+2024-10-28 22:06:23.259383: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259451: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259531: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259616: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259699: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259782: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259860: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.259942: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 2.01GiB (rounded to 2156070656)requested by op 
+2024-10-28 22:06:23.260020: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260041: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260071: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260105: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260134: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260199: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260293: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:23.260375: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+E1028 22:06:23.260719 3140743 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.260988 3140746 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.261150 3140749 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.261244 3140752 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.261446 3140737 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.261500 3140731 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.261617 3140740 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+E1028 22:06:23.261619 3140734 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Unable to allocate device workspace for syevd
+Out of memory, reducing chunk_size to 256 and retrying
+restoring checkpoint #1000
+2024-10-28 22:06:33.290836: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_5_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.290913: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_0_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.290991: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_3_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.291068: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_6_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.291165: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_2_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.291246: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_1_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.291320: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_4_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.291437: W external/xla/xla/tsl/framework/bfc_allocator.cc:497] Allocator (GPU_7_bfc) ran out of memory trying to allocate 4.78GiB (rounded to 5133846784)requested by op 
+2024-10-28 22:06:33.291526: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:33.291562: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+E1028 22:06:33.291587 3140746 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+2024-10-28 22:06:33.291597: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:33.291626: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+E1028 22:06:33.291630 3140731 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+E1028 22:06:33.291661 3140740 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+2024-10-28 22:06:33.291660: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+E1028 22:06:33.291684 3140743 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+2024-10-28 22:06:33.291699: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+2024-10-28 22:06:33.291733: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+E1028 22:06:33.291733 3140749 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+2024-10-28 22:06:33.291771: W external/xla/xla/tsl/framework/bfc_allocator.cc:508] ***************************************************************************************************_
+E1028 22:06:33.291770 3140737 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+E1028 22:06:33.291802 3140734 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+E1028 22:06:33.291840 3140752 pjrt_stream_executor_client.cc:3085] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/deepnets/optimization/run.py", line 158, in <module>
+    sim_time, n_parameters = optimization(
+                             ^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/deepnets/optimization/protocols.py", line 679, in symmetry_ramp_checkpoint
+    gs.run_checkpointed(
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/netket_checkpoint/_src/driver1/abstract_variational_driver.py", line 200, in run_checkpointed
+    loggers, callbacks, starting_iter = self._restore_checkpoint(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/netket/utils/timing.py", line 230, in timed_function
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/netket_checkpoint/_src/driver1/abstract_variational_driver.py", line 357, in _restore_checkpoint
+    self._forward_and_backward()
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/netket_pro/_src/driver/vmc_srt_ntk.py", line 368, in _forward_and_backward
+    local_energies = self.state.local_estimators(self._ham)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/netket/utils/timing.py", line 230, in timed_function
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/netket/vqs/mc/mc_state/state.py", line 611, in local_estimators
+    return local_estimators(self, op, chunk_size=chunk_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/netket/vqs/mc/mc_state/state.py", line 779, in local_estimators
+    s, extra_args = get_local_kernel_arguments(state, op)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/plum/function.py", line 383, in __call__
+    return _convert(method(*args, **kw_args), return_type)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/netket/vqs/mc/mc_state/expect.py", line 75, in get_local_kernel_arguments
+    σ = vstate.samples
+        ^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/netket_pro/_src/monkeypatch/mcstate_sampling.py", line 341, in samples
+    return self.samples_distribution()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/netket_pro/_src/monkeypatch/mcstate_sampling.py", line 274, in samples_distribution
+    self.sample_distribution(
+  File "/lustre/fswork/projects/rech/iqu/uvm91ap/repos/netket_pro_nocallback/netket_pro/_src/monkeypatch/mcstate_sampling.py", line 199, in sample_distribution
+    sampler_state = self.sampler.reset(distribution, variables, sampler_state)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/linkhome/rech/gencpt01/uvm91ap/.conda/envs/amd_gpu_nocallback/lib/python3.11/site-packages/netket/sampler/base.py", line 265, in reset
+    return sampler._reset(wrap_afun(machine), parameters, state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 5133846696 bytes.: while running replica 0 and partition 0 of a replicated computation (other replicas may have failed as well).
+srun: error: jean-zay-iam01: task 0: Exited with exit code 1
+srun: Terminating StepId=395165.0

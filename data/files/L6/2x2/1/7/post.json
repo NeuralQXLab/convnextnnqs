@@ -1,0 +1,1 @@
+{"post": {"min_index": 18, "symmetrized": true, "min_energy": -65.05984214980164}, "system": {"Name": "Shastry_Sutherland", "L": 6, "J": [0.8, 1.0]}, "network": {"n_blocks": [12], "features": [72], "expansion_factor": 2, "output_head": "Vanilla", "kernel_width": 2, "downsample_factor": 2, "final_features": 72}}

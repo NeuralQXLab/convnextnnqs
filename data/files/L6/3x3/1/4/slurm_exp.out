@@ -1,0 +1,16 @@
+Configuring sharding...
+Number of distributed processes = 1
+Number of total devices: 1
+0/1 : global [CudaDevice(id=0)]
+0/1 : local [CudaDevice(id=0)]
+0/1 : hostname:  cholesky-gpu03
+2024-11-04 10:20:42.577902: W external/xla/xla/service/gpu/nvptx_compiler.cc:893] The NVIDIA driver's CUDA version is 12.4 which is older than the PTX compiler version 12.6.68. Because the driver is older than the PTX compiler version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+/mnt/beegfs/workdir/rajah.nutakki/repos/netket_pro/deepnets/expectation_value/expectation_value.py:39: UserWarning: For performance reasons, we suggest to use a power-of-two chunk size.
+  vstate.chunk_size = chunk_size
+Arguments: Namespace(directory='/mnt/beegfs/workdir/rajah.nutakki/jeanzay_clone/jeanzay/deepNQS/ConvNext/14_10_24/L=6/symm_ramp_3x3/4', net='ConvNext', n_samples_per_chain=10000, n_chains=32, n_discard_per_chain=10000)
+Computing expectation values...
+vstate.n_chains = 32
+vstates.n_samples = 320000
+vstate.n_discard_per_chain = 10000
+Finished computing expectation values
+Time taken 1793.4s

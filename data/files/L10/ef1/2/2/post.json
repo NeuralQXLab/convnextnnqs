@@ -1,0 +1,1 @@
+{"post": {"min_index": 43, "min_energy": -179.69801623922643, "symmetrized": true}, "system": {"name": "Shastry_Sutherland", "L": 10, "J": [0.8, 1.0], "sz_sector": 0}, "network": {"name": "ConvNext", "n_blocks": [4], "features": [72], "expansion_factor": 1, "net_type": "Vanilla", "kernel_width": 3, "downsample_factor": 2, "final_features": 72, "init_kernel_width": 1}}
