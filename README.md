@@ -1,6 +1,6 @@
 # ConvNext Neural Quantum States and lattice simmetries
 
-Repository accompanying the article [Design principles of deep translationally-symmetric neural quantum states for frustrated magnets](link)
+Repository accompanying the article [Design principles of deep translationally-symmetric neural quantum states for frustrated magnets](https://arxiv.org/abs/2505.03466)
 
 ## Content
 
